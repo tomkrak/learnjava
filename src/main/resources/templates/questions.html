@@ -4,16 +4,14 @@
       layout:decorate="layout/layout"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.ultraq.net.nz/thymeleaf/layout ">
-<head>
-    <meta charset="UTF-8">
-    <title>Students</title>
-</head>
-<body>
-<th:block th:each="student : ${students}">
-    <p th:text="${student.name}"/>
-    <p th:text="${student.lastName}"/>
-    <p th:text="${student.level}"/>
-</th:block>
-
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Questions</title>
+    </head>
+    <body>
+    <th:block th:each="question : ${questions}">
+        <p th:text="${question.text}"/>
+        <p th:text="${question.level}"/>
+    </th:block>
+    </body>
 </html>

@@ -8,7 +8,6 @@ import javax.persistence.Id;
 public class Student {
     @Id
     @GeneratedValue
-
     private long id;
     private String name;
     private String lastName;

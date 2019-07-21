@@ -1,4 +1,9 @@
 package pl.sda.learnjava.LearnJava.repository;
 
-public interface StudentRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import pl.sda.learnjava.LearnJava.model.Student;
+
+import java.util.List;
+
+public interface StudentRepository  extends JpaRepository<Student, Long> {
 }

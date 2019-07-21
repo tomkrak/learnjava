@@ -2,6 +2,7 @@ package pl.sda.learnjava.LearnJava.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.sda.learnjava.LearnJava.dto.StudentDTO;
 import pl.sda.learnjava.LearnJava.model.Student;
 import pl.sda.learnjava.LearnJava.repository.StudentRepository;
 
@@ -20,5 +21,10 @@ public class StudentService {
 
     public List<Student> getStudents(){
         return studentRepository.findAll();
+    }
+
+    public void addStudent(StudentDTO userDTO) {
+        studentRepository.save(userDTO.studentDtoToStudent());
+
     }
 }

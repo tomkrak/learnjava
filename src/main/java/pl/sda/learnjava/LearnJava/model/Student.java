@@ -15,6 +15,14 @@ public class Student {
     private String login;
     private String password;
 
+    public Student(String name, String lastName, int level, String login, String password) {
+        this.name = name;
+        this.lastName = lastName;
+        this.level = level;
+        this.login = login;
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "Student{" +

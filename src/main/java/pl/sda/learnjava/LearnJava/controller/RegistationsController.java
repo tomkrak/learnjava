@@ -21,13 +21,14 @@ public class RegistationsController {
     }
 
     @RequestMapping("/registrations")
-    public String getRegistrations(Model model){
+    public String getRegistrations(Model model) {
         StudentDTO studentDTO = new StudentDTO();
         model.addAttribute("studentDTO", studentDTO);
-        return "registrations";
+        return "registration";
     }
+
     @RequestMapping(value = "/registrations", method = RequestMethod.POST)
-    public String postRegistrations(@ModelAttribute StudentDTO studentDTO, Model model){
+    public String postRegistrations(@ModelAttribute StudentDTO studentDTO, Model model) {
         studentService.addStudent(studentDTO);
 
         return "redirect:/students";

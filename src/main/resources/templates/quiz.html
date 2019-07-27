@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/layout"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.ultraq.net.nz/thymeleaf/layout ">
+    <head>
+        <meta charset="UTF-8">
+        <title>Quiz</title>
+    </head>
+    <body>
+    <th:block th:each="level : ${levels}">
+        <div>
+            <a th:text ="${level}" th:href = "@{/quiz/game(level=${level})}"></a>
+        </div>
+    </th:block>
+    </body>
+</html>

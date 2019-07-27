@@ -7,6 +7,7 @@ import pl.sda.learnjava.LearnJava.model.Question;
 import pl.sda.learnjava.LearnJava.repository.QuestionRepository;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class QuestionService {
@@ -27,4 +28,13 @@ public class QuestionService {
     public void addQuestion(QuestionDTO questionDTO) {
         questionRepository.save(questionDTO.questionDTOTOQuestion());
     }
+
+    public Set<String> getQuestionsLevel(){
+        return questionRepository.findQuestionsLevels();
+    }
+    public List<Question> findByLevel(Integer level){
+        return questionRepository.findByLevel(level);
+    }
+
+
 }

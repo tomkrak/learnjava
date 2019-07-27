@@ -18,10 +18,8 @@ public class QuestionsController {
     }
 
     @RequestMapping
-    public String getQuestions(Model model){
+    public String getQuestions(Model model) {
         model.addAttribute("questions", questionService.getQuestions());
         return "questions";
     }
-
-
 }

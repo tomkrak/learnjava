@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.sda.learnjava.LearnJava.service.StudentService;
+
 @Controller
 @RequestMapping("/students")
 public class StudentsController {
@@ -14,6 +15,7 @@ public class StudentsController {
     public StudentsController(StudentService studentService) {
         this.studentService = studentService;
     }
+
     @RequestMapping
     public String getStudents(Model model) {
         model.addAttribute("students", studentService.getStudents());

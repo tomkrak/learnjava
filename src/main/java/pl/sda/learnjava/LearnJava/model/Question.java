@@ -13,11 +13,13 @@ public class Question {
     @GeneratedValue(strategy = IDENTITY)
     @Column
     private Long id;
+    private String name;
     private String text;
     private int level;
     private String answer1;
     private String answer2;
     private String answer3;
+    private String answer4;
     private String correctAnswer;
 
     public void setId(Long id) {
@@ -28,17 +30,23 @@ public class Question {
     public String toString() {
         return "Question{" +
                 "id=" + id +
+                ", name='" + name + '\'' +
                 ", text='" + text + '\'' +
                 ", level=" + level +
                 ", answer1='" + answer1 + '\'' +
                 ", answer2='" + answer2 + '\'' +
                 ", answer3='" + answer3 + '\'' +
+                ", answer4='" + answer4 + '\'' +
                 ", correctAnswer='" + correctAnswer + '\'' +
                 '}';
     }
 
     public Long getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public String getText() {
@@ -51,6 +59,10 @@ public class Question {
 
     public int getLevel() {
         return level;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setLevel(int level) {
@@ -81,6 +93,14 @@ public class Question {
         this.answer3 = answer3;
     }
 
+    public String getAnswer4() {
+        return answer4;
+    }
+
+    public void setAnswer4(String answer4) {
+        this.answer4 = answer4;
+    }
+
     public String getCorrectAnswer() {
         return correctAnswer;
     }
@@ -92,8 +112,8 @@ public class Question {
     public Question() {
     }
 
-    public Question(String text) {
+    public Question(String name, String text) {
+        this.name = name;
         this.text = text;
     }
 }
-

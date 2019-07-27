@@ -14,17 +14,17 @@ public class StudentService {
 
     public StudentService() {
     }
+
     @Autowired
     public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
 
-    public List<Student> getStudents(){
+    public List<Student> getStudents() {
         return studentRepository.findAll();
     }
 
     public void addStudent(StudentDTO userDTO) {
         studentRepository.save(userDTO.studentDtoToStudent());
-
     }
 }

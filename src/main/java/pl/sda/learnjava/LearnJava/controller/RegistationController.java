@@ -11,16 +11,16 @@ import pl.sda.learnjava.LearnJava.service.StudentService;
 
 @Controller
 @RequestMapping
-public class RegistationsController {
+public class RegistationController {
 
     private StudentService studentService;
 
     @Autowired
-    public RegistationsController(StudentService studentService) {
+    public RegistationController(StudentService studentService) {
         this.studentService = studentService;
     }
 
-    @RequestMapping("/registrations")
+    @RequestMapping("/registration")
     public String getRegistrations(Model model) {
         StudentDTO studentDTO = new StudentDTO();
         model.addAttribute("studentDTO", studentDTO);

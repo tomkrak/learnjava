@@ -15,11 +15,11 @@ public class QuestionService {
     }
 
     @Autowired
-    public QuestionService(QuestionRepository questionRepository){
+    public QuestionService(QuestionRepository questionRepository) {
         this.questionRepository = questionRepository;
     }
 
-    public List<Question> getQuestions(){
+    public List<Question> getQuestions() {
         return questionRepository.findAll();
     }
 }

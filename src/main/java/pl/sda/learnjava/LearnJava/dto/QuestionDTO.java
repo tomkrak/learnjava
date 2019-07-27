@@ -1,18 +1,8 @@
-package pl.sda.learnjava.LearnJava.model;
+package pl.sda.learnjava.LearnJava.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import pl.sda.learnjava.LearnJava.model.Question;
 
-import static javax.persistence.GenerationType.IDENTITY;
-
-@Entity
-public class Question {
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
-    @Column
-    private Long id;
+public class QuestionDTO {
     private String name;
     private String text;
     private int level;
@@ -22,15 +12,13 @@ public class Question {
     private String answer4;
     private String correctAnswer;
 
-    public void setId(Long id) {
-        this.id = id;
+    public QuestionDTO() {
     }
 
     @Override
     public String toString() {
-        return "Question{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+        return "QuestionDTO{" +
+                "name='" + name + '\'' +
                 ", text='" + text + '\'' +
                 ", level=" + level +
                 ", answer1='" + answer1 + '\'' +
@@ -41,12 +29,16 @@ public class Question {
                 '}';
     }
 
-    public Long getId() {
-        return id;
+    public Question questionDTOTOQuestion() {
+        return new Question(name,text,level,answer1,answer2,answer3,answer4,correctAnswer);
     }
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getText() {
@@ -59,10 +51,6 @@ public class Question {
 
     public int getLevel() {
         return level;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public void setLevel(int level) {
@@ -106,25 +94,6 @@ public class Question {
     }
 
     public void setCorrectAnswer(String correctAnswer) {
-        this.correctAnswer = correctAnswer;
-    }
-
-    public Question() {
-    }
-
-    public Question(String name, String text) {
-        this.name = name;
-        this.text = text;
-    }
-
-    public Question(String name, String text, int level, String answer1, String answer2, String answer3, String answer4, String correctAnswer) {
-        this.name = name;
-        this.text = text;
-        this.level = level;
-        this.answer1 = answer1;
-        this.answer2 = answer2;
-        this.answer3 = answer3;
-        this.answer4 = answer4;
         this.correctAnswer = correctAnswer;
     }
 }

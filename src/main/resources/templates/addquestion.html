@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+
+</div>
+<form th:action="@{/admin/addquestion}" th:object="${questionDTO}" method="post">
+    <div>
+        <label for="name">name</label>
+        <input id="name" type="text" th:field="*{name}">
+    </div>
+    <div>
+        <label for="text">text</label>
+        <input id="text" type="text" th:field="*{text}">
+    </div>
+    <div>
+        <label for="level">level</label>
+        <input id="level" type="number" th:field="*{level}">
+    </div>
+    <div>
+        <label for="answer1">answer1</label>
+        <input id="answer1" type="text" th:field="*{answer1}">
+    </div>
+    <div>
+        <label for="answer2">answer2</label>
+        <input id="answer2" type="text" th:field="*{answer2}">
+    </div>
+    <div>
+        <label for="answer3">answer3</label>
+        <input id="answer3" type="text" th:field="*{answer3}">
+    </div>
+    <div>
+        <label for="answer4">answer4</label>
+        <input id="answer4" type="text" th:field="*{answer4}">
+    </div>
+    <div>
+        <label for="correctAnswer">correctAnswer</label>
+        <input id="correctAnswer" type="text" th:field="*{correctAnswer}">
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

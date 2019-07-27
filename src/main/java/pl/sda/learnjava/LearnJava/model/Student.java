@@ -3,10 +3,10 @@ package pl.sda.learnjava.LearnJava.model;
 import com.sun.javafx.geom.transform.Identity;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -33,6 +33,17 @@ public class Student {
     @Column
     private String password;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name= "STUDENT_ROLES")
+    private Set<Role> roles = new HashSet<>();
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     public Student() {
     }

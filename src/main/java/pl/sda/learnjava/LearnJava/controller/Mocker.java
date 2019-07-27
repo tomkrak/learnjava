@@ -1,45 +1,77 @@
 package pl.sda.learnjava.LearnJava.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import pl.sda.learnjava.LearnJava.model.Question;
+import pl.sda.learnjava.LearnJava.model.Role;
 import pl.sda.learnjava.LearnJava.model.Student;
 import pl.sda.learnjava.LearnJava.repository.QuestionRepository;
+import pl.sda.learnjava.LearnJava.repository.RoleRepository;
 import pl.sda.learnjava.LearnJava.repository.StudentRepository;
 
 import javax.annotation.PostConstruct;
+import java.util.Arrays;
+import java.util.HashSet;
 
 @Controller
 public class Mocker {
     private StudentRepository studentRepository;
     private QuestionRepository questionRepository;
+    private RoleRepository roleRepository;
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public Mocker(StudentRepository studentRepository, QuestionRepository questionRepository) {
+    public Mocker(StudentRepository studentRepository, QuestionRepository questionRepository, RoleRepository roleRepository,
+                  PasswordEncoder passwordEncoder) {
         this.studentRepository = studentRepository;
         this.questionRepository = questionRepository;
+        this.roleRepository = roleRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @PostConstruct
     public void mockData() {
+        Role student = new Role("student");
+        Role admin = new Role("admin");
 
-        Student student = new Student();
+        roleRepository.save(student);
+        roleRepository.save(admin);
 
-        student.setLogin("kowalski");
-        student.setPassword("kowalski1");
-        student.setName("andrzej");
-        student.setLastName("kowalski");
-        student.setLevel(1);
+
 
         Student student1 = new Student();
-        student1.setLevel(2);
-        student1.setLogin("nowak");
-        student1.setPassword("haslo2");
-        student1.setName("Stefan");
-        student1.setLastName("Nowak");
+        student1.setLogin("kowalski");
+        student1.setPassword(passwordEncoder.encode("kowalski1"));
+        student1.setName("andrzej");
+        student1.setLastName("kowalski");
+        student1.setLevel(1);
+        student1.setRoles(new HashSet<>(Arrays.asList(student)));
 
-        studentRepository.save(student);
+
+       Student student2 = new Student();
+        student2.setLevel(2);
+        student2.setLogin("nowak");
+        student2.setPassword(passwordEncoder.encode("haslo2"));
+        student2.setName("Stefan");
+        student2.setLastName("Nowak");
+        student2.setRoles(new HashSet<>(Arrays.asList(student)));
+
+
+        Student admin1 = new Student();
+        admin1.setName("admin");
+        admin1.setLogin("admin");
+        admin1.setLevel(3);
+        admin1.setPassword(passwordEncoder.encode("admin"));
+        admin1.setLastName("admin");
+        admin1.setRoles(new HashSet<>(Arrays.asList(admin)));
+
+
+
         studentRepository.save(student1);
+        studentRepository.save(student2);
+        studentRepository.save(admin1);
+
 
         Question question1 = new Question("Pytanie 1", "W deklaracji metody, wymienione elementy występują w następującej kolejności:");
         question1.setLevel(1);

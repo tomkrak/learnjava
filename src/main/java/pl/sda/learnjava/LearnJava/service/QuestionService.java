@@ -53,8 +53,9 @@ public class QuestionService {
         int numberOfQuestions = allQuestions.size();
         List<Question> randomQuestions = new ArrayList<>();
         while(randomQuestions.size() < 5){
-            if(!randomQuestions.contains(allQuestions.get(random.nextInt(numberOfQuestions)))) {
-                randomQuestions.add(allQuestions.get(random.nextInt(numberOfQuestions)));
+            int r = random.nextInt(numberOfQuestions);
+            if(!randomQuestions.contains(allQuestions.get(r))) {
+                randomQuestions.add(allQuestions.get((r)));
 
             }
         }

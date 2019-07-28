@@ -9,8 +9,162 @@
         <title>Game</title>
     </head>
     <body>
-    <th:block th:each="question : ${questions}">
-      <p th:text="${question}"></p>
-    </th:block>
+    <fieldset>
+        <legend th:text="${questions[0].text}"></legend>
+        <ul>
+            <li>
+                <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[0].answer}"
+                       th:value="${questions[0].answer1}"/>
+                <label th:for="${questions[0].answer1}" th:text="${questions[0].answer1}"></label>
+            </li>
+            <li>
+                <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[0].answer}"
+                       th:value="${questions[0].answer2}"/>
+                <label th:for="${questions[0].answer2}" th:text="${questions[0].answer2}"></label>
+            </li>
+            <li>
+                <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[0].answer}"
+                       th:value="${questions[0].answer3}"/>
+                <label th:for="${questions[0].answer3}" th:text="${questions[0].answer3}"></label>
+            </li>
+            <li>
+                <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[0].answer}"
+                       th:value="${questions[0].answer4}"/>
+                <label th:for="${questions[0].answer4}" th:text="${questions[0].answer4}"></label>
+            </li>
+        </ul>
+    </fieldset>
+    <fieldset>
+        <legend th:text="${questions[0].text}"></legend>
+        <ul>
+            <li>
+                <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[0].answer}"
+                       th:value="${questions[0].answer1}"/>
+                <label th:for="${questions[0].answer1}" th:text="${questions[0].answer1}"></label>
+            </li>
+            <li>
+                <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[0].answer}"
+                       th:value="${questions[0].answer2}"/>
+                <label th:for="${questions[0].answer2}" th:text="${questions[0].answer2}"></label>
+            </li>
+            <li>
+                <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[0].answer}"
+                       th:value="${questions[0].answer3}"/>
+                <label th:for="${questions[0].answer3}" th:text="${questions[0].answer3}"></label>
+            </li>
+            <li>
+                <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[0].answer}"
+                       th:value="${questions[0].answer4}"/>
+                <label th:for="${questions[0].answer4}" th:text="${questions[0].answer4}"></label>
+            </li>
+        </ul>
+    </fieldset>
+
+    <fieldset>
+    <legend th:text="${questions[1].text}"></legend>
+    <ul>
+        <li>
+            <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[1].answer}"
+                   th:value="${questions[1].answer1}"/>
+            <label th:for="${questions[1].answer1}" th:text="${questions[1].answer1}"></label>
+        </li>
+        <li>
+            <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[1].answer}"
+                   th:value="${questions[1].answer2}"/>
+            <label th:for="${questions[1].answer2}" th:text="${questions[1].answer2}"></label>
+        </li>
+        <li>
+            <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[1].answer}"
+                   th:value="${questions[1].answer3}"/>
+            <label th:for="${questions[1].answer3}" th:text="${questions[1].answer3}"></label>
+        </li>
+        <li>
+            <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[1].answer}"
+                   th:value="${questions[1].answer4}"/>
+            <label th:for="${questions[1].answer4}" th:text="${questions[1].answer4}"></label>
+        </li>
+    </ul>
+    </fieldset>
+
+    <fieldset>
+    <legend th:text="${questions[2].text}"></legend>
+    <ul>
+        <li>
+            <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[2].answer}"
+                   th:value="${questions[2].answer1}"/>
+            <label th:for="${questions[2].answer1}" th:text="${questions[2].answer1}"></label>
+        </li>
+        <li>
+            <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[2].answer}"
+                   th:value="${questions[2].answer2}"/>
+            <label th:for="${questions[2].answer2}" th:text="${questions[2].answer2}"></label>
+        </li>
+        <li>
+            <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[2].answer}"
+                   th:value="${questions[2].answer3}"/>
+            <label th:for="${questions[2].answer3}" th:text="${questions[2].answer3}"></label>
+        </li>
+        <li>
+            <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[2].answer}"
+                   th:value="${questions[2].answer4}"/>
+            <label th:for="${questions[2].answer4}" th:text="${questions[2].answer4}"></label>
+        </li>
+    </ul>
+    </fieldset>
+
+    <fieldset>
+    <legend th:text="${questions[3].text}"></legend>
+    <ul>
+        <li>
+            <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[3].answer}"
+                   th:value="${questions[3].answer1}"/>
+            <label th:for="${questions[3].answer1}" th:text="${questions[3].answer1}"></label>
+        </li>
+        <li>
+            <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[3].answer}"
+                   th:value="${questions[3].answer2}"/>
+            <label th:for="${questions[3].answer2}" th:text="${questions[3].answer2}"></label>
+        </li>
+        <li>
+            <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[3].answer}"
+                   th:value="${questions[3].answer3}"/>
+            <label th:for="${questions[3].answer3}" th:text="${questions[3].answer3}"></label>
+        </li>
+        <li>
+            <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[3].answer}"
+                   th:value="${questions[3].answer4}"/>
+            <label th:for="${questions[3].answer4}" th:text="${questions[3].answer4}"></label>
+        </li>
+    </ul>
+    </fieldset>
+
+    <fieldset>
+    <legend th:text="${questions[4].text}"></legend>
+    <ul>
+        <li>
+            <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[4].answer}"
+                   th:value="${questions[4].answer1}"/>
+            <label th:for="${questions[4].answer1}" th:text="${questions[4].answer1}"></label>
+        </li>
+        <li>
+            <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[4].answer}"
+                   th:value="${questions[4].answer2}"/>
+            <label th:for="${questions[4].answer2}" th:text="${questions[4].answer2}"></label>
+        </li>
+        <li>
+            <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[4].answer}"
+                   th:value="${questions[4].answer3}"/>
+            <label th:for="${questions[4].answer3}" th:text="${questions[4].answer3}"></label>
+        </li>
+        <li>
+            <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[4].answer}"
+                   th:value="${questions[4].answer4}"/>
+            <label th:for="${questions[4].answer4}" th:text="${questions[4].answer4}"></label>
+        </li>
+    </ul>
+    </fieldset>
+<button th:type="submit" value="Submit"></button>
+    <button th:type="reset" value="Reset"></button>
+
     </body>
 </html>

@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import pl.sda.learnjava.LearnJava.dto.QuizAnswerDTO;
 import pl.sda.learnjava.LearnJava.model.Question;
 import pl.sda.learnjava.LearnJava.repository.QuestionRepository;
 import pl.sda.learnjava.LearnJava.service.QuestionService;
@@ -41,7 +42,8 @@ public class QuizController {
                 .filter(x -> level.equals(x.getValue()))
                 .map(Map.Entry::getKey).findFirst()
                 .get();
+        model.addAttribute("quizAnswerDTO", new QuizAnswerDTO());
         model.addAttribute("questions", questionService.findRandomFiveByLevel(levelInt));
-        return "/game";
+        return "game";
     }
 }

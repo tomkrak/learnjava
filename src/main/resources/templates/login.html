@@ -12,14 +12,40 @@
               crossorigin="anonymous">
     </head>
     <body>
+
     <th:block th:include="header::header"></th:block>
-    <form th:action="@{/login}" method="post">
-        <div><label> User Name : <input type="text" id="login"
-                                        name="login" placeholder="Login"/> </label></div>
-        <div><label> Password: <input type="password" id="password" name="password"
-                                      placeholder="Password"/> </label></div>
-        <div><input type="submit" value="Sign In"/></div>
-    </form>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form>
+                    <div class="form-group">
+                        <label for="login"> User Name : </label>
+                        <input type="text" class="form-control"  name="login" id="login" aria-describedby="emailHelp" placeholder="Login">
+                    </div>
+                    <div class="form-group">
+                        <label for="password"> Password : </label>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+
+            </div>
+        </div>
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>

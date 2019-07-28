@@ -3,10 +3,12 @@ package pl.sda.learnjava.LearnJava.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.sda.learnjava.LearnJava.dto.QuizAnswerDTO;
+import pl.sda.learnjava.LearnJava.dto.SimpleAnswer;
 import pl.sda.learnjava.LearnJava.model.Question;
 import pl.sda.learnjava.LearnJava.repository.QuestionRepository;
 import pl.sda.learnjava.LearnJava.service.QuestionService;
@@ -42,8 +44,22 @@ public class QuizController {
                 .filter(x -> level.equals(x.getValue()))
                 .map(Map.Entry::getKey).findFirst()
                 .get();
-        model.addAttribute("quizAnswerDTO", new QuizAnswerDTO());
-        model.addAttribute("questions", questionService.findRandomFiveByLevel(levelInt));
+        List<Question> randomQuestions = questionService.findRandomFiveByLevel(levelInt);
+        List<SimpleAnswer> simpleAnswers = new ArrayList<>();
+        for(int i = 0; i < 5; i++) {
+            SimpleAnswer simpleAnswer = new SimpleAnswer();
+            simpleAnswer.setQuestion(randomQuestions.get(i).getName());
+            simpleAnswers.add(simpleAnswer);
+        }
+        QuizAnswerDTO quizAnswerDTO = new QuizAnswerDTO();
+        quizAnswerDTO.setSimpleAnswers(simpleAnswers);
+        model.addAttribute("quizAnswerDTO", quizAnswerDTO);
+        model.addAttribute("questions", randomQuestions);
         return "game";
+    }
+    @RequestMapping(value = "/game", method = RequestMethod.POST)
+    public String submitQuiz(@ModelAttribute QuizAnswerDTO quizAnswerDTO, Model model) {
+        System.out.println(quizAnswerDTO);
+        return "redirect:/quiz";
     }
 }

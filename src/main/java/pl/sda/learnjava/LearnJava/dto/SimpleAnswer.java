@@ -20,4 +20,12 @@ public class SimpleAnswer {
     public void setQuestion(String question) {
         this.question = question;
     }
+
+    @Override
+    public String toString() {
+        return "SimpleAnswer{" +
+                "answer='" + answer + '\'' +
+                ", question='" + question + '\'' +
+                '}';
+    }
 }

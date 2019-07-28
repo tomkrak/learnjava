@@ -13,4 +13,11 @@ public class QuizAnswerDTO {
     public void setSimpleAnswers(List<SimpleAnswer> simpleAnswers) {
         this.simpleAnswers = simpleAnswers;
     }
+
+    @Override
+    public String toString() {
+        return "QuizAnswerDTO{" +
+                "simpleAnswers=" + simpleAnswers +
+                '}';
+    }
 }

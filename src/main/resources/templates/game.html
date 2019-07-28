@@ -16,6 +16,7 @@
     <form th:action="@{/quiz/game}" th:object="${quizAnswerDTO}" method="post">
         <fieldset>
             <legend th:text="${questions[0].text}"></legend>
+            <input type="hidden" th:field="${quizAnswerDTO.simpleAnswers[0].question}" th:value="${quizAnswerDTO.simpleAnswers[0].question}"/>
             <ul style="list-style-type: none;">
                 <li>
                     <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[0].answer}"
@@ -41,6 +42,8 @@
         </fieldset>
         <fieldset>
             <legend th:text="${questions[1].text}"></legend>
+            <input type="hidden" th:field="${quizAnswerDTO.simpleAnswers[1].question}" th:value="${quizAnswerDTO.simpleAnswers[1].question}"/>
+
             <ul style="list-style-type: none;">
                 <li>
                     <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[1].answer}"
@@ -67,6 +70,8 @@
 
         <fieldset>
             <legend th:text="${questions[2].text}"></legend>
+            <input type="hidden" th:field="${quizAnswerDTO.simpleAnswers[2].question}" th:value="${quizAnswerDTO.simpleAnswers[2].question}"/>
+
             <ul style="list-style-type: none;">
                 <li>
                     <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[2].answer}"
@@ -93,6 +98,8 @@
 
         <fieldset>
             <legend th:text="${questions[3].text}"></legend>
+            <input type="hidden" th:field="${quizAnswerDTO.simpleAnswers[3].question}" th:value="${quizAnswerDTO.simpleAnswers[3].question}"/>
+
             <ul style="list-style-type: none;">
                 <li>
                     <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[3].answer}"
@@ -119,6 +126,8 @@
 
         <fieldset>
             <legend th:text="${questions[4].text}"></legend>
+            <input type="hidden" th:field="${quizAnswerDTO.simpleAnswers[4].question}" th:value="${quizAnswerDTO.simpleAnswers[4].question}"/>
+
             <ul style="list-style-type: none;">
                 <li>
                     <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[4].answer}"

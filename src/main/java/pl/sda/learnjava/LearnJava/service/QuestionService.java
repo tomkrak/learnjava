@@ -6,8 +6,9 @@ import pl.sda.learnjava.LearnJava.dto.QuestionDTO;
 import pl.sda.learnjava.LearnJava.model.Question;
 import pl.sda.learnjava.LearnJava.repository.QuestionRepository;
 
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 @Service
 public class QuestionService {
@@ -29,11 +30,35 @@ public class QuestionService {
         questionRepository.save(questionDTO.questionDTOTOQuestion());
     }
 
-    public Set<String> getQuestionsLevel(){
+    public Set<Integer> getQuestionsLevel() {
         return questionRepository.findQuestionsLevels();
     }
-    public List<Question> findByLevel(Integer level){
+
+    public Map<Integer, String> getQuestionsLevelAsMap() {
+        Map<Integer, String> levelsMap = new HashMap<>();
+        levelsMap.put(1,"Poziom początkujący");
+        levelsMap.put(2, "Poziom średniozaawansowany");
+        levelsMap.put(3, "Poziom zaawansowany");
+        return levelsMap;
+
+    }
+
+    public List<Question> findByLevel(Integer level) {
         return questionRepository.findByLevel(level);
+    }
+
+    public List<Question> findRandomFiveByLevel(Integer level) {
+        Random random = new Random();
+        List<Question> allQuestions = questionRepository.findByLevel(level);
+        int numberOfQuestions = allQuestions.size();
+        List<Question> randomQuestions = new ArrayList<>();
+        while(randomQuestions.size() < 5){
+            if(!randomQuestions.contains(allQuestions.get(random.nextInt(numberOfQuestions)))) {
+                randomQuestions.add(allQuestions.get(random.nextInt(numberOfQuestions)));
+
+            }
+        }
+        return randomQuestions;
     }
 
 

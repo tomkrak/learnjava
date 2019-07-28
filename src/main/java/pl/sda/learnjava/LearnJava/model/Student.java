@@ -19,13 +19,16 @@ public class Student {
     private long id;
 
     @Column
+    private int progress = 0;
+
+    @Column
     private String name;
 
     @Column
     private String lastName;
 
     @Column
-    private int level;
+    private int level = 0;
 
     @Column
     private String login;
@@ -48,19 +51,25 @@ public class Student {
     public Student() {
     }
 
-    public Student(String name, String lastName, int level, String login, String password) {
+    public int getProgress() {
+        return progress;
+    }
+
+    public void setProgress(int progress) {
+        this.progress = progress;
+    }
+
+    public Student(String name, String lastName, String login, String password) {
         this.name = name;
         this.lastName = lastName;
-        this.level = level;
         this.login = login;
         this.password = password;
     }
 
-    public Student(long id, String name, String lastName, int level, String login, String password) {
+    public Student(long id, String name, String lastName, String login, String password) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
-        this.level = level;
         this.login = login;
         this.password = password;
     }

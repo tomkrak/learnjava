@@ -45,12 +45,10 @@ public class Mocker {
         student1.setPassword(passwordEncoder.encode("kowalski1"));
         student1.setName("andrzej");
         student1.setLastName("kowalski");
-        student1.setLevel(1);
         student1.setRoles(new HashSet<>(Arrays.asList(student)));
 
 
        Student student2 = new Student();
-        student2.setLevel(2);
         student2.setLogin("nowak");
         student2.setPassword(passwordEncoder.encode("haslo2"));
         student2.setName("Stefan");
@@ -61,7 +59,6 @@ public class Mocker {
         Student admin1 = new Student();
         admin1.setName("admin");
         admin1.setLogin("admin");
-        admin1.setLevel(3);
         admin1.setPassword(passwordEncoder.encode("admin"));
         admin1.setLastName("admin");
         admin1.setRoles(new HashSet<>(Arrays.asList(admin)));

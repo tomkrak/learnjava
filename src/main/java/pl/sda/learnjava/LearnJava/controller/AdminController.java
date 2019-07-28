@@ -13,6 +13,7 @@ import pl.sda.learnjava.LearnJava.service.QuestionService;
 @RequestMapping("/admin")
 public class AdminController {
     private QuestionService questionService;
+
     @Autowired
     public AdminController(QuestionService questionService) {
         this.questionService = questionService;
@@ -20,13 +21,13 @@ public class AdminController {
 
     @RequestMapping("/addquestion")
     public String addQuestion(Model model) {
-        model.addAttribute("questionDTO" ,new QuestionDTO());
+        model.addAttribute("questionDTO", new QuestionDTO());
         return "addquestion";
     }
+
     @RequestMapping(value = "/addquestion", method = RequestMethod.POST)
     public String postAddQuestion(@ModelAttribute QuestionDTO questionDTO, Model model) {
-        System.out.println("----------------------------------------------------------");
-        System.out.println(questionDTO);
+
         questionService.addQuestion(questionDTO);
         return "redirect:/questions";
     }

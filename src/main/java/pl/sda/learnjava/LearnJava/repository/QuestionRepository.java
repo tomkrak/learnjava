@@ -9,6 +9,7 @@ import java.util.Set;
 
 public interface QuestionRepository extends JpaRepository<Question, Long> {
     @Query(value = "SELECT q.level FROM Question q")
-    Set<String> findQuestionsLevels();
+    Set<Integer> findQuestionsLevels();
+
     List<Question> findByLevel(int level);
 }

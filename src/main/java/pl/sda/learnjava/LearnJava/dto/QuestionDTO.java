@@ -30,7 +30,7 @@ public class QuestionDTO {
     }
 
     public Question questionDTOTOQuestion() {
-        return new Question(name,text,level,answer1,answer2,answer3,answer4,correctAnswer);
+        return new Question(name, text, level, answer1, answer2, answer3, answer4, correctAnswer);
     }
 
     public String getName() {

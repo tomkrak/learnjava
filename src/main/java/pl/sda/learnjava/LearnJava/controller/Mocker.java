@@ -264,10 +264,10 @@ public class Mocker {
 
         Question question25 = new Question("Pytanie 25", "Czy można jednym poleceniem pobrać i wstawić dane z jednej tabeli do drugiej?");
         question25.setLevel(2);
-        question25.setAnswer1("a) TAK, ale trzeba użyć tabeli widokowej (view)");
-        question25.setAnswer2("b) TAK, przy użyciu UNION lub UNION ALL");
-        question25.setAnswer3("c) TAK, przy użyciu INSERT INTO i SELECT");
-        question25.setAnswer4("d) NIE, bo jest to proces dwuetapowy");
+        question25.setAnswer1("a) Tak, ale trzeba użyć tabeli widokowej (view)");
+        question25.setAnswer2("b) Tak, przy użyciu UNION lub UNION ALL");
+        question25.setAnswer3("c) Tak, przy użyciu INSERT INTO i SELECT");
+        question25.setAnswer4("d) Nie, bo jest to proces dwuetapowy");
         question25.setCorrectAnswer(question25.getAnswer3());
 
         Question question26 = new Question("Pytanie 26", "Założenie indeksów na kolumny:");

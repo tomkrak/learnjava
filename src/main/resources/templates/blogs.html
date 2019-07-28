@@ -4,59 +4,74 @@
       layout:decorate="layout/layout"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.ultraq.net.nz/thymeleaf/layout ">
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Blogs</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Blogs</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                  crossorigin="anonymous">
+        </head>
 
-</head>
-
-<body>
-<th:block th:include="header::header"></th:block>
-<div>
-
-    <div class="container">
-        <div style="border-style: double; padding: 10px;margin-right: 30px;
+        <body>
+        <th:block th:include="header::header"></th:block>
+        <div>
+            <div class="container">
+                <div style="border-style: double; padding: 10px;margin-right: 30px;
     margin-left: 1px; margin-top: 20px;">
-            <p class="font-weight-bold">1. Baeldung</p>
-            <p class="text-justify">Baeldung jest w tej chwili jednym z najbardziej poczytnych blogów o Javie i powiązanych technologiach. Prowadzący go Eugen Paraschiv nazywa się edukatorem z zamiłowania. Potwierdza to, udostępniając przydatne kursy (REST with Spring, Jackson JSON Tutorial, LEARN Spring Security).
-            </p>
-            <a  target=”_blank” href="https://www.baeldung.com/" class="text-decoration-none">https://www.baeldung.com/</a>
-        </div>
-        <div style="border-style: double; padding: 10px;margin-right: 30px;
+                    <p class="font-weight-bold">1. Baeldung</p>
+                    <p class="text-justify">Baeldung jest w tej chwili jednym z najbardziej poczytnych blogów o Javie i
+                        powiązanych technologiach. Prowadzący go Eugen Paraschiv nazywa się edukatorem z zamiłowania.
+                        Potwierdza to, udostępniając przydatne kursy (REST with Spring, Jackson JSON Tutorial, LEARN
+                        Spring Security).
+                    </p>
+                    <a target=”_blank” href="https://www.baeldung.com/" class="text-decoration-none">https://www.baeldung.com/</a>
+                </div>
+                <div style="border-style: double; padding: 10px;margin-right: 30px;
     margin-left: 1px; margin-top: 20px;">
-            <p class="font-weight-bold">2. Thoughts on Java</p>
-            <p class="text-justify">
-                Thoughts on Java to coś więcej niż zwykły blog. To kopalnia bardzo dokładnych informacji dla odbiorców na wszystkich poziomach zaawansowania - w formie postów, poradników, wideo z YouTube, warsztatów i kursów online. Wiedzą na filmikach dzieli się sam Thorben, zagłębiając się w treści związane z Hibernate.
-            </p>
-            <a  target=”_blank” href="https://www.thoughts-on-java.org/" class="text-decoration-none">https://www.thoughts-on-java.org/</a>
-        </div>
-        <div style="border-style: double; padding: 10px;margin-right: 30px;
+                    <p class="font-weight-bold">2. Thoughts on Java</p>
+                    <p class="text-justify">
+                        Thoughts on Java to coś więcej niż zwykły blog. To kopalnia bardzo dokładnych informacji dla
+                        odbiorców na wszystkich poziomach zaawansowania - w formie postów, poradników, wideo z YouTube,
+                        warsztatów i kursów online. Wiedzą na filmikach dzieli się sam Thorben, zagłębiając się w treści
+                        związane z Hibernate.
+                    </p>
+                    <a target=”_blank” href="https://www.thoughts-on-java.org/" class="text-decoration-none">https://www.thoughts-on-java.org/</a>
+                </div>
+                <div style="border-style: double; padding: 10px;margin-right: 30px;
     margin-left: 1px; margin-top: 20px;">
-            <p class="font-weight-bold">3. JavaWorld</p>
-            <p class="text-justify">
-                Szeroki zakres informacji sprawia, że blog można uznać za idealny punkt startowy dla tych, którzy z programowaniem zaczynają. To z myślą o nich powstała seria Java 101, poruszająca tematy kodowania, składni, API, pakietów. Jeśli nie do końca jesteś pewien o czym piszemy, tym bardziej tam zajrzyj.
-            </p>
-            <a  target=”_blank” href="https://www.javaworld.com/" class="text-decoration-none">https://www.javaworld.com/</a>
-        </div>
-        <div style="border-style: double; padding: 10px;margin-right: 30px;
+                    <p class="font-weight-bold">3. JavaWorld</p>
+                    <p class="text-justify">
+                        Szeroki zakres informacji sprawia, że blog można uznać za idealny punkt startowy dla tych,
+                        którzy z programowaniem zaczynają. To z myślą o nich powstała seria Java 101, poruszająca tematy
+                        kodowania, składni, API, pakietów. Jeśli nie do końca jesteś pewien o czym piszemy, tym bardziej
+                        tam zajrzyj.
+                    </p>
+                    <a target=”_blank” href="https://www.javaworld.com/" class="text-decoration-none">https://www.javaworld.com/</a>
+                </div>
+                <div style="border-style: double; padding: 10px;margin-right: 30px;
     margin-left: 1px; margin-top: 20px;">
-            <p class="font-weight-bold">4. Java Revisited</p>
-            <p class="text-justify">
-                Co ciekawe, jeden z bardziej popularnych cykli na blogu wywodzi się z ,,wywiadów'' prowadzonych przez czytelników. Użytkownicy konsultowali się z Javinem co do kwestii związanych z Javą, on natomiast wybierał ulubione pytania i rozwijał je w formie obszernych, zaangażowanych artykułów-odpowiedzi.
-            </p>
-            <a  target=”_blank” href=" http://javarevisited.blogspot.com/" class="text-decoration-none">http://javarevisited.blogspot.com/</a>
+                    <p class="font-weight-bold">4. Java Revisited</p>
+                    <p class="text-justify">
+                        Co ciekawe, jeden z bardziej popularnych cykli na blogu wywodzi się z ,,wywiadów'' prowadzonych
+                        przez czytelników. Użytkownicy konsultowali się z Javinem co do kwestii związanych z Javą, on
+                        natomiast wybierał ulubione pytania i rozwijał je w formie obszernych, zaangażowanych
+                        artykułów-odpowiedzi.
+                    </p>
+                    <a target=”_blank” href=" http://javarevisited.blogspot.com/" class="text-decoration-none">http://javarevisited.blogspot.com/</a>
+                </div>
+            </div>
         </div>
 
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"></script>
 
-        </div>
-</div>
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-</body>
-</html>
+        </body>
+    </html>

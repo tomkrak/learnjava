@@ -4,40 +4,68 @@
       layout:decorate="layout/layout"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.ultraq.net.nz/thymeleaf/layout ">
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Books</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Books</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                  crossorigin="anonymous">
+        </head>
 
-</head>
-
-<body>
-<th:block th:include="header::header"></th:block>
-
-<div>
-    <div class="container">
-    <div style="border-style: double; padding: 10px;margin-right: 30px;
+        <body>
+        <th:block th:include="header::header"></th:block>
+        <div>
+            <div class="container">
+                <div style="border-style: double; padding: 10px;margin-right: 30px;
     margin-left: 1px; margin-top: 20px;">
-        1) Horstmann C.S., Java. Podstawy, Wydanie X i nowsze, Helion, Gliwice 2016, 872s. – biblia javowców. Wydanie X jest zgodne z Javą 8. Choć książka zawiera niektórerzadko używane technologie, jak pakiet Swing i jest dosyć trudna w odbiorze dlapoczątkujących   –   zawiera   jednak   dogłębną   analizę   podstaw   składni   Javy   iobiektowości. Jest to pierwszy tom serii tego autora, drugi – Techniki zaawansowane –omawia takie zagadnienia, jak API strumieni, aplikacje sieciowe używające protokołuHTTP, JDBC i kwestie bezpieczeństwa
-
-    </div>
-    <div>
-
-        <div style="border-style: double; padding: 10px;margin-right: 30px;
+                    1) <b>Horstmann C.S., Java. Podstawy, Wydanie X i nowsze, Helion, Gliwice 2016, 872 s.</b> – biblia
+                    javowców. Wydanie X jest zgodne z Javą 8. Choć książka zawiera niektóre rzadko używane technologie,
+                    jak pakiet Swing i jest dosyć trudna w odbiorze dla początkujących – zawiera jednak dogłębną analizę
+                    podstaw składni Javy iobiektowości. Jest to pierwszy tom serii tego autora, drugi – Techniki
+                    zaawansowane – omawia takie zagadnienia, jak API strumieni, aplikacje sieciowe używające protokołu
+                    HTTP, JDBC i kwestie bezpieczeństwa.
+                    </p>
+                    <a target=”_blank”
+                       href="https://helion.pl/ksiazki/java-podstawy-wydanie-x-cay-s-horstmann,javp10.htm#format/d"
+                       class="text-decoration-none">Kup najnowszą wersję książki na stronie wydawcy</a>
+                </div>
+                <div>
+                    <div style="border-style: double; padding: 10px;margin-right: 30px;
     margin-left: 1px;  margin-top: 20px;">
-            2) Schildt H., Java. Przewodnik dla początkujących, Wydanie VI i nowsze, Helion,Gliwice 2015, 568 s. –  typowy   podręcznik   z   listingami   kodu   do   przepisania   iuruchomienia. Styl bardziej zrozumiały niż u Horstmanna. Z rzeczy, których już siędziś   mało   używa   mamy   rozdziały   o   apletach,   Swingu   i   JavieFX.   Publikacjasygnowana przez firmę Oracle, aktualnego wydawcę Javy.
-        </div>
-          <div style="border-style: double; padding: 10px;margin-right: 30px;
+                        2) <b>Schildt H., Java. Przewodnik dla początkujących, Wydanie VI i nowsze, Helion,Gliwice 2015,
+                        568 s. </b> – typowy podręcznik z listingami kodu do przepisania i uruchomienia. Styl bardziej
+                        zrozumiały niż u Horstmanna. Z rzeczy, których już siędziś mało używa mamy rozdziały o apletach,
+                        Swingu i JavieFX. Publikacja sygnowana przez firmę Oracle, aktualnego wydawcę Javy.
+                        </p>
+                        <a target=”_blank”
+                           href="https://helion.pl/ksiazki/java-przewodnik-dla-poczatkujacych-wydanie-vi-herbert-schildt,javpp6.htm#format/d"
+                           class="text-decoration-none">Kup najnowszą wersję książki na stronie wydawcy</a>
+                    </div>
+                    <div style="border-style: double; padding: 10px;margin-right: 30px;
     margin-left: 1px;  margin-top: 20px;">
-              3) Schildt H., Java. Kompendium programisty, Wydanie IX i nowsze, Helion, Gliwice2015, 1132 s. – bardziej rozbudowana, dogłębna, encyklopedyczna i dwa razy dłuższawersja poprzedniej książki tego autora. W części I omówiony został język Java, wczęści II biblioteki języka Java (część III i IV pomijamy milczeniem – Swing iJavaFX), a w części V stosowanie Javy w praktyce (Java Beans, serwety)
-          </div>
-    </div>
-    </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+                        3) <b>Schildt H., Java. Kompendium programisty, Wydanie IX i nowsze, Helion, Gliwice2015, 1132
+                        s.</b> – bardziej rozbudowana, dogłębna, encyklopedyczna i dwa razy dłuższa wersja poprzedniej
+                        książki tego autora. W części I omówiony został język Java, w części II biblioteki języka Java
+                        (część III i IV pomijamy milczeniem – Swing i JavaFX), a w części V stosowanie Javy w praktyce
+                        (Java Beans, serwety).
+                        </p>
+                        <a target=”_blank”
+                           href="https://helion.pl/ksiazki/java-kompendium-programisty-wydanie-ix-herbert-schildt,javkp9.htm#format/d"
+                           class="text-decoration-none">Kup najnowszą wersję książki na stronie wydawcy</a>
+                    </div>
+                </div>
+            </div>
 
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                    crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                    crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                    crossorigin="anonymous"></script>
 
-</body>
-</html>
+        </body>
+    </html>

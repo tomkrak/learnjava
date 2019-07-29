@@ -12,4 +12,5 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
     Set<Integer> findQuestionsLevels();
 
     List<Question> findByLevel(int level);
+    Question getByName(String name);
 }

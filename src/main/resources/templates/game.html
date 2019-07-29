@@ -16,7 +16,7 @@
     <form th:action="@{/quiz/game}" th:object="${quizAnswerDTO}" method="post">
         <fieldset>
             <legend th:text="${questions[0].text}"></legend>
-            <input type="hidden" th:field="${quizAnswerDTO.simpleAnswers[0].question}" th:value="${quizAnswerDTO.simpleAnswers[0].question}"/>
+            <input type="hidden" th:field="${quizAnswerDTO.simpleAnswers[0].question}"/>
             <ul style="list-style-type: none;">
                 <li>
                     <input type="radio" th:field="${quizAnswerDTO.simpleAnswers[0].answer}"

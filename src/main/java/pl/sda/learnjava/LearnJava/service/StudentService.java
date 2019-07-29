@@ -27,4 +27,10 @@ public class StudentService {
     public void addStudent(StudentDTO userDTO) {
         studentRepository.save(userDTO.studentDtoToStudent());
     }
+    public void addStudent(Student student) {studentRepository.save(student);}
+
+    public Student getByLogin(String login) {
+        return studentRepository.getByLogin(login);
+    }
+
 }

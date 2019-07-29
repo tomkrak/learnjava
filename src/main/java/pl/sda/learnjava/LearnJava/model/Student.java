@@ -123,6 +123,11 @@ public class Student {
         this.password = password;
     }
 
+    public void addScore(int score) {
+       this.level = this.level + (this.progress + score)/10;
+       this.progress = (this.progress + score) % 10;
+    }
+
     @Override
     public String toString() {
         return "Student{" +

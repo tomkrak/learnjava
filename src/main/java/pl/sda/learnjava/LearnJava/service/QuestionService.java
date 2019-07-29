@@ -47,6 +47,10 @@ public class QuestionService {
         return questionRepository.findByLevel(level);
     }
 
+    public Question getByName(String name) {
+        return questionRepository.getByName(name);
+    }
+
     public List<Question> findRandomFiveByLevel(Integer level) {
         Random random = new Random();
         List<Question> allQuestions = questionRepository.findByLevel(level);

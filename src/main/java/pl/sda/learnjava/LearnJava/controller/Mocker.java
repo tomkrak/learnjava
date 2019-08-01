@@ -39,7 +39,6 @@ public class Mocker {
         roleRepository.save(admin);
 
 
-
         Student student1 = new Student();
         student1.setLogin("kowalski");
         student1.setPassword(passwordEncoder.encode("kowalski1"));
@@ -48,7 +47,7 @@ public class Mocker {
         student1.setRoles(new HashSet<>(Arrays.asList(student)));
 
 
-       Student student2 = new Student();
+        Student student2 = new Student();
         student2.setLogin("nowak");
         student2.setPassword(passwordEncoder.encode("haslo2"));
         student2.setName("Stefan");
@@ -62,7 +61,6 @@ public class Mocker {
         admin1.setPassword(passwordEncoder.encode("admin"));
         admin1.setLastName("admin");
         admin1.setRoles(new HashSet<>(Arrays.asList(admin)));
-
 
 
         studentRepository.save(student1);
@@ -364,7 +362,191 @@ public class Mocker {
         question37.setAnswer2("b) 400");
         question37.setAnswer3("c) 404");
         question37.setAnswer4("d) 500");
-        question37.setCorrectAnswer(question33.getAnswer3());
+        question37.setCorrectAnswer(question37.getAnswer3());
+
+        Question question38 = new Question("Pytanie 38", "Jakie są trzy zasady programowania obiektowego:");
+        question38.setLevel(3);
+        question38.setAnswer1("a) serializacja, hermetyzacja, polimorfizm");
+        question38.setAnswer2("b) enkapsulacja, polimorfizm, hermetyzacja");
+        question38.setAnswer3("c) hermetyzacja, dziedziczenie, polimorfizm");
+        question38.setAnswer4("d) dziedziczenie, abstrakcja, enkapsulacja");
+        question38.setCorrectAnswer(question38.getAnswer3());
+
+        Question question39 = new Question("Pytanie 39", "Który z poniższych identyfikatorów zmiennych jest nieprawidłowy:");
+        question39.setLevel(3);
+        question39.setAnswer1("a) my_variable_");
+        question39.setAnswer2("b) $variable");
+        question39.setAnswer3("c) _variable");
+        question39.setAnswer4("d) 1variable");
+        question39.setCorrectAnswer(question39.getAnswer4());
+
+        Question question40 = new Question("Pytanie 40", "Typy sparametryzowane są tak ważne, ponieważ umożliwiają tworzenie kodu, który:");
+        question40.setLevel(3);
+        question40.setAnswer1("a) jest bezpieczny z punktu widzenia zgodności typów");
+        question40.setAnswer2("b) może być wykorzystywany wielokrotnie i jest niezawodny");
+        question40.setAnswer3("c) adpowiedzi a i b są prawdziwe");
+        question40.setAnswer4("d) odpowiedzi a i b są fałszywe");
+        question40.setCorrectAnswer(question40.getAnswer3());
+
+        Question question41 = new Question("Pytanie 41", "Która procedura wysyłania zmian do zdalnego repozytorium zadziała poprawnie:");
+        question41.setLevel(1);
+        question41.setAnswer1("a) git push, git commit -m \"message\", git add .");
+        question41.setAnswer2("b) git pull, git commit -m \"message\", git push");
+        question41.setAnswer3("c) git commit -m \"message\", git add ., git push");
+        question41.setAnswer4("d) git add ., git commit -m \"message\", git push");
+        question41.setCorrectAnswer(question41.getAnswer4());
+
+        Question question42 = new Question("Pytanie 42", "Co oznacza skrót WORA:");
+        question42.setLevel(1);
+        question42.setAnswer1("a) Write Object, Rest After");
+        question42.setAnswer2("b) Web Oracle Repository Analyzation");
+        question42.setAnswer3("c) Write Once, Run Anywhere");
+        question42.setAnswer4("d) Wirtual Oracle Runtime Association");
+        question42.setCorrectAnswer(question42.getAnswer3());
+
+        Question question43 = new Question("Pytanie 43", "Który ciąg zawiera tylko unchecked exceptions, czyli wyjątki, których programista nie musi obsługiwać i które dziedziczą po Runtime Exeption:");
+        question43.setLevel(1);
+        question43.setAnswer1("a) NullPointerExeption, IllegalArgumentExeption, IndexOutOfBoundsExeption");
+        question43.setAnswer2("b) IOExeption, SQLExeption, FileNotFoundExeption");
+        question43.setAnswer3("c) OutOfMemoryError, StackOverflowError, SocketExeption");
+        question43.setAnswer4("d) 400 Bad Request, 403 Forbidden, 404 Not Found");
+        question43.setCorrectAnswer(question43.getAnswer1());
+
+        Question question44 = new Question("Pytanie 44", "Co to jest SOLID:");
+        question44.setLevel(2);
+        question44.setAnswer1("a) biblioteka wykorzystywana w TDD oparta na obiektowo zorientowanym języku Solidity");
+        question44.setAnswer2("b) skrót od Singleton, Observer, Lock, Iterator, Decorator, czyli zbiór najczęściej stosowanych wzorców projektowych");
+        question44.setAnswer3("c) zbiór zasad pisania czystego kodu, żeby był łatwo rozszerzalny, testowalny i czytelny");
+        question44.setAnswer4("d) SOL ID to jeden z rodzajów LOG ID stosowanych w protokole HTTP");
+        question44.setCorrectAnswer(question44.getAnswer3());
+
+        Question question45 = new Question("Pytanie 45", "Pojęcie widoku (view) może się odnosić do:");
+        question45.setLevel(2);
+        question45.setAnswer1("a) tabeli wirtualnej w SQL tworzonej przez komendę: create view");
+        question45.setAnswer2("b) Spring MVC");
+        question45.setAnswer3("c) klasy View z pakietu java.lang.Object");
+        question45.setAnswer4("d) wszystkie odpowiedzi są poprawne");
+        question45.setCorrectAnswer(question45.getAnswer4());
+
+        Question question46 = new Question("Pytanie 46", "CRUD oznacza:");
+        question46.setLevel(2);
+        question46.setAnswer1("a) Code Run Until Deadline");
+        question46.setAnswer2("b) create read update delate – czyli podstawowe operacje do zarządzania danymi w bazie danych");
+        question46.setAnswer3("c) interfejs w Springu");
+        question46.setAnswer4("d) odpowiedzi b i c są poprawne");
+        question46.setCorrectAnswer(question46.getAnswer2());
+
+        Question question47 = new Question("Pytanie 47", "Co to jest trigger:");
+        question47.setLevel(2);
+        question47.setAnswer1("a) to obiekt związany z tablicą bazy danych, który aktywuje się w sytuacji kiedy jest wykonywane zapytanie do tablicy");
+        question47.setAnswer2("b) wyzwalacz encji");
+        question47.setAnswer3("c) polecenie, które wywołuje funkcję DROP");
+        question47.setAnswer4("d) żadna z powyższych odpowiedzi nie jest poprawna");
+        question47.setCorrectAnswer(question47.getAnswer1());
+
+        Question question48 = new Question("Pytanie 48", "Poleceniu SELECT w bazie danych SQL odpowiada w protokole HTTP polecenie:");
+        question48.setLevel(2);
+        question48.setAnswer1("a) PUT");
+        question48.setAnswer2("b) GET");
+        question48.setAnswer3("c) POST");
+        question48.setAnswer4("d) DELETE");
+        question48.setCorrectAnswer(question48.getAnswer2());
+
+        Question question49 = new Question("Pytanie 49", "Skrót ACID oznacza:");
+        question49.setLevel(2);
+        question49.setAnswer1("a) Niepodzielność, Spójność, Izolację, Trwałość");
+        question49.setAnswer2("b) zbiór właściwości gwarantujących poprawne przetwarzanie transakcji w bazie danych SQL");
+        question49.setAnswer3("c) Atomicity, Consistensity, Isolation, Durability");
+        question49.setAnswer4("d) wszystkie powyższe odpowiedzi są poprawne");
+        question49.setCorrectAnswer(question49.getAnswer4());
+
+        Question question50 = new Question("Pytanie 50", "Teoria CAP nie oznacza:");
+        question50.setLevel(2);
+        question50.setAnswer1("a) Consistency, Availability, Partition Tolerance");
+        question50.setAnswer2("b) spójność, dostępność, odporność na podział");
+        question50.setAnswer3("c) teorii w myśl której każda baza danych może spełnić wszystkie z trzech jej założeń");
+        question50.setAnswer4("d) teorii w myśl której każda baza danych może spełnić tylko dwie z trzech jej założeń");
+        question50.setCorrectAnswer(question50.getAnswer3());
+
+        Question question51 = new Question("Pytanie 51", "BASE to:");
+        question51.setLevel(3);
+        question51.setAnswer1("a) Basically Available, Soft state, Eventual consistency");
+        question51.setAnswer2("b) kompromis, który osiągają bazy NoSQL, nie mogąc spełnić ACID");
+        question51.setAnswer3("c) jedna z implementacji teorii CAP");
+        question51.setAnswer4("d) odpowiedzi a i b są poprawne");
+        question51.setCorrectAnswer(question51.getAnswer4());
+
+        Question question52 = new Question("Pytanie 52", "Do typów baz danych NoSQL nie należą:");
+        question52.setLevel(3);
+        question52.setAnswer1("a) bazy danych klucz-wartość");
+        question52.setAnswer2("b) bazy danych obiektowe");
+        question52.setAnswer3("c) bazy danych grafowe");
+        question52.setAnswer4("d) bazy danych kolumnowe");
+        question52.setCorrectAnswer(question52.getAnswer2());
+
+        Question question53 = new Question("Pytanie 53", "Podstawowe interfejsy JDBC to:");
+        question53.setLevel(3);
+        question53.setAnswer1("a) Connection, Statement, PreparedStatement, ResultSet");
+        question53.setAnswer2("b) Runtime, Serializable, ResultSet");
+        question53.setAnswer3("c) JDBCConnector, JDBCUpload, JDBCRuntime");
+        question53.setAnswer4("d) JDBC nie korzysta z interfejsów, tylko z klas abstrakcyjnych");
+        question53.setCorrectAnswer(question53.getAnswer1());
+
+        Question question54 = new Question("Pytanie 54", "Co to jest SQL Injection:");
+        question54.setLevel(3);
+        question54.setAnswer1("a) wstrzykiwanie zależności do SQL-a");
+        question54.setAnswer2("b) wstrzykiwanie zapytań SQL-owych do bazy NoSQL-owej");
+        question54.setAnswer3("c) rodzaj ataku, który opiera się na nieodpowiednim filtrowaniu znaków ucieczki z danych wejściowych, co może doprowadzić do zniszczenia danych");
+        question54.setAnswer4("d) to jeden z poziomów izolacji transakcji, który w praktyce powoduje ignorowanie założonych blokad na transakcji");
+        question54.setCorrectAnswer(question54.getAnswer3());
+
+        Question question55 = new Question("Pytanie 55", "Co to jest ORM:");
+        question55.setLevel(3);
+        question55.setAnswer1("a) mapowanie obiektowo-ralacyjne");
+        question55.setAnswer2("b) Object Runtime Management, czyli sposób zarządzania wykonywaniem metod przez obiekty");
+        question55.setAnswer3("c) jedno z rozszerzeń plików ukrytych w Javie");
+        question55.setAnswer4("d) część jądra JVM");
+        question55.setCorrectAnswer(question55.getAnswer1());
+
+        Question question56 = new Question("Pytanie 56", "Z jakich komponentów nie składa się Hibernate:");
+        question56.setLevel(3);
+        question56.setAnswer1("a) encji");
+        question56.setAnswer2("b) konstruktorów");
+        question56.setAnswer3("c) meta informacji obiektowo-relacyjnych (adnotacje lub plik .xml)");
+        question56.setAnswer4("d) języka HQL");
+        question56.setCorrectAnswer(question56.getAnswer2());
+
+        Question question57 = new Question("Pytanie 57", "HATEOAS to nie jest:");
+        question57.setLevel(3);
+        question57.setAnswer1("a) Hypermedia As The Engine Of Application State");
+        question57.setAnswer2("b) jeden z constrainów aplikacji tworzonych w architekturze REST");
+        question57.setAnswer3("c) standard mówiący, że aplikacja powinna pozwalać na sterowanie poprzez dodatkowe informacje pozwalające na poruszanie się po API REST-owym");
+        question57.setAnswer4("d) idea mówiąca o przekazywaniu z obiektem adresu IP obiektów powiązanych");
+        question57.setCorrectAnswer(question57.getAnswer4());
+
+        Question question58 = new Question("Pytanie 58", "Które stwierdzenie dotyczące REST jest nieprawdziwe:");
+        question58.setLevel(3);
+        question58.setAnswer1("a) skrót REST tłumaczy się, jako zmiana stanu poprzez reprezentacje");
+        question58.setAnswer2("b) REST to styl architektury oprogramowania wywiedziony z doświadczeń przy pisaniu specyfikacji protokołu HTTP dla systemów rozproszonych");
+        question58.setAnswer3("c) REST to Relational Exchange Software Transfer");
+        question58.setAnswer4("d) REST wykorzystuje m.in. jednorodny interfejs, bezstanową komunikację, zasoby, reprezentacje, hipermedia, HATEOAS");
+        question58.setCorrectAnswer(question58.getAnswer3());
+
+        Question question59 = new Question("Pytanie 59", "Co to jest P2P:");
+        question59.setLevel(3);
+        question59.setAnswer1("a) rodzaj umowy biznesowej między programistą a firmą na zasadzie działalności gospodarczej");
+        question59.setAnswer2("b) P2P to pair programming, czyli praktyka programowania w parach wywodząca się z metodyki extreme programming");
+        question59.setAnswer3("c) odmiana architektury klient-serwer, w której każdy host może pełnić jednocześnie rolę klienta i rolę serwera");
+        question59.setAnswer4("d) rodzaj serwera, który mapuje nazwy domenowe na IP");
+        question59.setCorrectAnswer(question59.getAnswer3());
+
+        Question question60 = new Question("Pytanie 60", "Singleton, prototype, request, session, application, websocket to:");
+        question60.setLevel(3);
+        question60.setAnswer1("a) atrubuty Beana");
+        question60.setAnswer2("b) zasięgi Beana");
+        question60.setAnswer3("c) scope Beana");
+        question60.setAnswer4("d) odpowiedzi b i c są poprawne");
+        question60.setCorrectAnswer(question60.getAnswer4());
 
         questionRepository.save(question1);
         questionRepository.save(question2);
@@ -403,6 +585,28 @@ public class Mocker {
         questionRepository.save(question35);
         questionRepository.save(question36);
         questionRepository.save(question37);
+        questionRepository.save(question38);
+        questionRepository.save(question39);
+        questionRepository.save(question40);
+        questionRepository.save(question41);
+        questionRepository.save(question42);
+        questionRepository.save(question43);
+        questionRepository.save(question44);
+        questionRepository.save(question45);
+        questionRepository.save(question46);
+        questionRepository.save(question47);
+        questionRepository.save(question48);
+        questionRepository.save(question49);
+        questionRepository.save(question50);
+        questionRepository.save(question51);
+        questionRepository.save(question52);
+        questionRepository.save(question53);
+        questionRepository.save(question54);
+        questionRepository.save(question55);
+        questionRepository.save(question56);
+        questionRepository.save(question57);
+        questionRepository.save(question58);
+        questionRepository.save(question59);
+        questionRepository.save(question60);
     }
-
 }

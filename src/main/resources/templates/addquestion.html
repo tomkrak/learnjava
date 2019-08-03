@@ -9,46 +9,55 @@
     </head>
     <body>
     <th:block th:include="header::header"></th:block>
-
-    <div class="container">
-
+    <div class="container" style="margin-top: 20px;">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <form th:action="@{/admin/addquestion}" th:object="${questionDTO}" method="post">
+                    <div class="form-group">
+                        <label for="questionName">Question name</label>
+                        <input type="text" th:field="*{name}" class="form-control" id="questionName"
+                               name="login" placeholder="Enter question name">
+                    </div>
+                    <div class="form-group">
+                        <label for="questionText">Question text</label>
+                        <input type="text" th:field="*{name}" class="form-control" id="questionText"
+                               name="login" placeholder="Enter question text">
+                    </div>
+                    <div class="form-group">
+                        <label for="level">Level</label>
+                        <input type="number" th:field="*{name}" class="form-control" id="level"
+                               name="login" placeholder="Enter level">
+                    </div>
+                    <div class="form-group">
+                        <label for="answer1">Answer1</label>
+                        <input type="text" th:field="*{name}" class="form-control" id="answer1"
+                               name="login" placeholder="Enter Answer1">
+                    </div>
+                    <div class="form-group">
+                        <label for="answer2">Answer2</label>
+                        <input type="text" th:field="*{name}" class="form-control" id="answer2"
+                               name="login" placeholder="Enter Answer2">
+                    </div>
+                    <div class="form-group">
+                        <label for="answer3">Answer3</label>
+                        <input type="text" th:field="*{name}" class="form-control" id="answer3"
+                               name="login" placeholder="Enter Answer3">
+                    </div>
+                    <div class="form-group">
+                        <label for="answer4">Answer4</label>
+                        <input type="text" th:field="*{name}" class="form-control" id="answer4"
+                               name="login" placeholder="Enter Answer4">
+                    </div>
+                    <div class="form-group">
+                        <label for="correctAnswer">Correct Answer</label>
+                        <input type="text" th:field="*{name}" class="form-control" id="correctAnswer"
+                               name="login" placeholder="Enter correct answer">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
-    <form th:action="@{/admin/addquestion}" th:object="${questionDTO}" method="post">
-        <div>
-            <label for="name">name</label>
-            <input id="name" type="text" th:field="*{name}">
-        </div>
-        <div>
-            <label for="text">text</label>
-            <input id="text" type="text" th:field="*{text}">
-        </div>
-        <div>
-            <label for="level">level</label>
-            <input id="level" type="number" th:field="*{level}">
-        </div>
-        <div>
-            <label for="answer1">answer1</label>
-            <input id="answer1" type="text" th:field="*{answer1}">
-        </div>
-        <div>
-            <label for="answer2">answer2</label>
-            <input id="answer2" type="text" th:field="*{answer2}">
-        </div>
-        <div>
-            <label for="answer3">answer3</label>
-            <input id="answer3" type="text" th:field="*{answer3}">
-        </div>
-        <div>
-            <label for="answer4">answer4</label>
-            <input id="answer4" type="text" th:field="*{answer4}">
-        </div>
-        <div>
-            <label for="correctAnswer">correctAnswer</label>
-            <input id="correctAnswer" type="text" th:field="*{correctAnswer}">
-        </div>
-
-        <button type="submit">Submit</button>
-    </form>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

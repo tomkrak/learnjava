@@ -24,7 +24,6 @@ public class StudentDTO {
     public Student studentDtoToStudent() {
         ApplicationContext applicationContext = SpringContext.getContext();
         PasswordEncoder passwordEncoder = applicationContext.getBean(PasswordEncoder.class);
-
         return new Student(name, lastName, login, passwordEncoder.encode(password));
 
     }

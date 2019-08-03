@@ -50,15 +50,35 @@
                             <a class="nav-link" th:href="@{/quiz}" style="color: red;">Quiz</a>
                         </li>
                     </div>
+                    <div sec:authorize="hasRole('ROLE_student')">
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/books}" style="color: lightskyblue;">Książki</a>
                     </li>
+                    </div>
+                    <div sec:authorize="hasRole('ROLE_student')">
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/blogs}" style="color: orange">Linki</a>
                     </li>
-
+                    </div>
+                    <div sec:authorize="hasRole('ROLE_admin')">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/students}" style="color: #fff922">Studenci</a>
+                        </li>
+                    </div>
+                    <div sec:authorize="hasRole('ROLE_admin')">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/questions}" style="color: #25ff90">Pytania</a>
+                        </li>
+                    </div>
+                    <div sec:authorize="hasRole('ROLE_admin')">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/admin/addquestion}" style="color: #f7c6ff">Dodaj</a>
+                        </li>
+                    </div>
                 </ul>
             </div>
+
+
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown">

@@ -4,6 +4,8 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.data.jpa.provider.HibernateUtils;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,6 +20,7 @@ import pl.sda.learnjava.LearnJava.repository.QuestionRepository;
 import pl.sda.learnjava.LearnJava.service.QuestionService;
 import pl.sda.learnjava.LearnJava.service.QuizAnswerDTOService;
 import pl.sda.learnjava.LearnJava.service.StudentService;
+import sun.plugin.liveconnect.SecurityContextHelper;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -50,7 +53,7 @@ public class QuizController {
     @RequestMapping
     public String chooseLevel(Model model) {
         List<String> levels = new ArrayList<>(questionService.getQuestionsLevelAsMap().values());
-
+        Authentication autentication = SecurityContextHolder.getContext().getAuthentication();
         model.addAttribute("levels", levels);
         return "quiz";
     }
@@ -123,6 +126,8 @@ public class QuizController {
         model.addAttribute("level", currentStudent.getLevel());
         model.addAttribute("progressLeft", 10 - currentStudent.getProgress());
         model.addAttribute("questions", questions);
+        List<String> levels = new ArrayList<>(questionService.getQuestionsLevelAsMap().values());
+        model.addAttribute("levels", levels);
         return "correctquiz";
     }
 }

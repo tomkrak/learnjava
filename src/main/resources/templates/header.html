@@ -28,15 +28,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <div sec:authorize="!isAuthenticated()">
-                    <li class="nav-item active">
-                        <a class="nav-link" th:href="@{/login}" style="color: deeppink;">Zaloguj<span class="sr-only">(current)</span></a>
+                        <li class="nav-item active">
+                            <a class="nav-link" th:href="@{/login}" style="color: deeppink;">Zaloguj<span
+                                    class="sr-only">(current)</span></a>
+                    </div>
+                    <div>
                     </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" th:href="@{/logout}" style="color: #b885ff;">Wyloguj<span
+                                    class="sr-only">(current)</span></a>
+                        </li>
                     </div>
                     <div sec:authorize="!isAuthenticated()">
-                    <li class="nav-item active">
-                        <a class="nav-link" th:href="@{/registration}" style="color: yellow;">Zarejestruj<span
-                                class="sr-only">(current)</span></a>
-                    </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" th:href="@{/registration}" style="color: yellow;">Zarejestruj<span
+                                    class="sr-only">(current)</span></a>
+                        </li>
                     </div>
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/quiz}" style="color: red;">Quiz</a>

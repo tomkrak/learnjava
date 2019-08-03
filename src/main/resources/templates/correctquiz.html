@@ -20,13 +20,22 @@
 <h2>Ilość punktów pozostała do zwiekszenia Twojego poziomu: <span th:text="${progressLeft}"/></h2>
 
 <th:block th:each="question : ${questions}">
-    <p th:text="${question.text}"/>
+    <b><p th:text="${question.text}"/></b>
     <p th:utext="${question.answer1}"/>
     <p th:utext="${question.answer2}"/>
     <p th:utext="${question.answer3}"/>
     <p th:utext="${question.answer4}"/>
 
 </th:block>
+<div>
+    <b>Idż dalej. Wybierz kolejne pytanie według poziomu:</b>
+</div>
+<th:block th:each="level : ${levels}">
+    <div>
+        <a th:text="${level}" th:href="@{/quiz/game(level=${level})}"></a>
+    </div>
+</th:block>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

@@ -164,7 +164,7 @@ public class Mocker {
         question12.setAnswer4("d) wykonuje instrukcje przed sprawdzeniem warunków spełnienia");
         question12.setCorrectAnswer(question12.getAnswer3());
 
-        Question question13 = new Question("Pytanie 13", "Jaka jest różnica pomiędzy typami int, a Integer:");
+        Question question13 = new Question("Pytanie 13", "Jaka jest różnica pomiędzy typami int a Integer:");
         question13.setLevel(1);
         question13.setAnswer1("a) nie ma żadnej różnicy");
         question13.setAnswer2("b) Integer jest klasą osłonową, a int jest typem prostym");

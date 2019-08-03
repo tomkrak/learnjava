@@ -1,6 +1,7 @@
 package pl.sda.learnjava.LearnJava.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ public class StudentsController {
     @RequestMapping
     public String getStudents(Model model) {
         model.addAttribute("students", studentService.getStudents());
+        model.addAttribute("username", SecurityContextHolder.getContext().getAuthentication().getName());
         return "students";
     }
 }

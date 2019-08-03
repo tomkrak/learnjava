@@ -55,6 +55,7 @@ public class QuizController {
         List<String> levels = new ArrayList<>(questionService.getQuestionsLevelAsMap().values());
         Authentication autentication = SecurityContextHolder.getContext().getAuthentication();
         model.addAttribute("levels", levels);
+        model.addAttribute("username", SecurityContextHolder.getContext().getAuthentication().getName());
         return "quiz";
     }
 
@@ -104,6 +105,7 @@ public class QuizController {
         quizAnswerDTO.setSimpleAnswers(simpleAnswers);
         model.addAttribute("quizAnswerDTO", quizAnswerDTO);
         model.addAttribute("questions", randomQuestions);
+        model.addAttribute("username", SecurityContextHolder.getContext().getAuthentication().getName());
         return "game";
     }
 
@@ -154,6 +156,7 @@ public class QuizController {
         model.addAttribute("questions", questions);
         List<String> levels = new ArrayList<>(questionService.getQuestionsLevelAsMap().values());
         model.addAttribute("levels", levels);
+        model.addAttribute("username", SecurityContextHolder.getContext().getAuthentication().getName());
         return "correctquiz";
     }
 

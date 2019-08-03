@@ -33,11 +33,13 @@
                                     class="sr-only">(current)</span></a>
                     </div>
                     <div>
-                    </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" th:href="@{/logout}" style="color: #b885ff;">Wyloguj<span
-                                    class="sr-only">(current)</span></a>
                         </li>
+                        <div sec:authorize="isAuthenticated()">
+                            <li class="nav-item active">
+                                <a class="nav-link" th:href="@{/logout}" style="color: #b885ff;">Wyloguj<span
+                                        class="sr-only">(current)</span></a>
+                            </li>
+                        </div>
                     </div>
                     <div sec:authorize="!isAuthenticated()">
                         <li class="nav-item active">
@@ -45,20 +47,20 @@
                                     class="sr-only">(current)</span></a>
                         </li>
                     </div>
-                    <div sec:authorize="isAuthenticated()">
+                    <div sec:authorize="hasRole('ROLE_student')">
                         <li class="nav-item">
                             <a class="nav-link" th:href="@{/quiz}" style="color: red;">Quiz</a>
                         </li>
                     </div>
                     <div sec:authorize="hasRole('ROLE_student')">
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/books}" style="color: lightskyblue;">Książki</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/books}" style="color: lightskyblue;">Książki</a>
+                        </li>
                     </div>
                     <div sec:authorize="hasRole('ROLE_student')">
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/blogs}" style="color: orange">Linki</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/blogs}" style="color: orange">Linki</a>
+                        </li>
                     </div>
                     <div sec:authorize="hasRole('ROLE_admin')">
                         <li class="nav-item">
@@ -78,24 +80,27 @@
                 </ul>
             </div>
 
-
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" style="color: white" id="navbarDropdown"
-                           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Menu rozwijane
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" th:href="@{/login}">Zaloguj</a>
-                            <a class="dropdown-item" th:href="@{/registration}">Zarejestruj</a>
-                            <a class="dropdown-item" th:href="@{/logout}">Wyloguj</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" th:href="@{/quiz}">Quiz</a>
-                            <a class="dropdown-item" th:href="@{/books}">Książki</a>
-                            <a class="dropdown-item" th:href="@{/blogs}">Blogi</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" th:text="${username}"
+                                              style="color: #ffedff"></a>
                     </li>
+<!--                    <li class="nav-item dropdown">-->
+<!--                        <a class="nav-link dropdown-toggle" href="#" style="color: white" id="navbarDropdown"-->
+<!--                           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                            Menu rozwijane-->
+<!--                        </a>-->
+<!--                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
+<!--                            <a class="dropdown-item" th:href="@{/login}">Zaloguj</a>-->
+<!--                            <a class="dropdown-item" th:href="@{/registration}">Zarejestruj</a>-->
+<!--                            <a class="dropdown-item" th:href="@{/logout}">Wyloguj</a>-->
+<!--                            <div class="dropdown-divider"></div>-->
+<!--                            <a class="dropdown-item" th:href="@{/quiz}">Quiz</a>-->
+<!--                            <a class="dropdown-item" th:href="@{/books}">Książki</a>-->
+<!--                            <a class="dropdown-item" th:href="@{/blogs}">Blogi</a>-->
+<!--                        </div>-->
+<!--                    </li>-->
                 </ul>
             </div>
         </nav>

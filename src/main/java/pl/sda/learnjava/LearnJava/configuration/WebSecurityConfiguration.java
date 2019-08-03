@@ -31,7 +31,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers("/admin/**", "/students", "/questions/**")
                 .hasAnyAuthority("ROLE_admin")
-                .antMatchers("/questions")
+                .antMatchers("/questions", "/books", "/blogs")
                 .hasAnyAuthority("ROLE_student")
                 .antMatchers("/quiz/**", "/quiz/game/**")
                 .hasAnyAuthority("ROLE_admin", "ROLE_student")

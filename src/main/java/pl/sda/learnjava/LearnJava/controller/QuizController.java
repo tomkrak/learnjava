@@ -1,7 +1,9 @@
 package pl.sda.learnjava.LearnJava.controller;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.data.jpa.provider.HibernateUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,6 +19,9 @@ import pl.sda.learnjava.LearnJava.service.QuestionService;
 import pl.sda.learnjava.LearnJava.service.QuizAnswerDTOService;
 import pl.sda.learnjava.LearnJava.service.StudentService;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 import java.security.Principal;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -28,6 +33,8 @@ public class QuizController {
     private QuestionService questionService;
     private QuizAnswerDTOService quizAnswerDTOService;
     private StudentService studentService;
+    @PersistenceContext
+    EntityManager entityManager;
 
     @Autowired
     public QuizController(QuestionService questionService, QuizAnswerDTOService quizAnswerDTOService, StudentService studentService) {
@@ -71,8 +78,11 @@ public class QuizController {
     public String submitQuiz(@ModelAttribute QuizAnswerDTO quizAnswerDTO, Model model, Principal principal) {
 
         List<Question> questions = new ArrayList<>();
+
+
         for (SimpleAnswer simpleAnswer : quizAnswerDTO.getSimpleAnswers()) {
             Question question = questionService.getByName(simpleAnswer.getQuestion());
+            entityManager.detach(question);
 
             if (question.getAnswer1().equals(simpleAnswer.getAnswer()) && !question.getAnswer1().equals(question.getCorrectAnswer())) {
                 question.setAnswer1("<a style=\"color: red\">" + question.getAnswer1() + "</a>\n");

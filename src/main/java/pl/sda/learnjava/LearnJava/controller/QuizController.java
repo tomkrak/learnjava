@@ -33,6 +33,10 @@ public class QuizController {
     private QuestionService questionService;
     private QuizAnswerDTOService quizAnswerDTOService;
     private StudentService studentService;
+    private List<Question> basicQuestionsAnswered = new ArrayList<>();
+    private List<Question> mediumQuestionsAnswered = new ArrayList<>();
+    private List<Question> advancedQuestionsAnswered = new ArrayList<>();
+
     @PersistenceContext
     EntityManager entityManager;
 

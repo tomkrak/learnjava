@@ -2,8 +2,12 @@ package pl.sda.learnjava.LearnJava.dto;
 
 import pl.sda.learnjava.LearnJava.model.Student;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class StudentDTO {
 
+    @NotBlank(message = "Imię nie może być puste")
     private String name;
     private String lastName;
     private int level = 0;

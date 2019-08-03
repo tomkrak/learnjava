@@ -3,11 +3,14 @@ package pl.sda.learnjava.LearnJava.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import pl.sda.learnjava.LearnJava.dto.StudentDTO;
 import pl.sda.learnjava.LearnJava.service.StudentService;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping
@@ -28,9 +31,13 @@ public class RegistationController {
     }
 
     @RequestMapping(value = "/registrations", method = RequestMethod.POST)
-    public String postRegistrations(@ModelAttribute StudentDTO studentDTO, Model model) {
-        studentService.addStudent(studentDTO);
+    public String postRegistrations(@ModelAttribute @Valid StudentDTO studentDTO, BindingResult bindingResult, Model model) {
 
-        return "redirect:/students";
+        if (bindingResult.hasErrors()) {
+            return "registration";
+        } else {
+            studentService.addStudent(studentDTO);
+            return "redirect:/students";
+        }
     }
 }

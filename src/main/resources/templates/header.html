@@ -45,9 +45,11 @@
                                     class="sr-only">(current)</span></a>
                         </li>
                     </div>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/quiz}" style="color: red;">Quiz</a>
-                    </li>
+                    <div sec:authorize="isAuthenticated()">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/quiz}" style="color: red;">Quiz</a>
+                        </li>
+                    </div>
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/books}" style="color: lightskyblue;">Książki</a>
                     </li>

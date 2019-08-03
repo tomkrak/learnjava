@@ -13,13 +13,26 @@
     </head>
     <body>
     <th:block th:include="header::header"></th:block>
-    <form th:action="@{/login}" method="post">
-        <div><label> User Name : <input type="text" id="login"
-                                        name="login" placeholder="Login"/> </label></div>
-        <div><label> Password: <input type="password" id="password" name="password"
-                                      placeholder="Password"/> </label></div>
-        <div><input type="submit" value="Sign In"/></div>
-    </form>
+    <div class="container" style="margin-top: 20px;">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <form th:action="@{/login}" method="post">
+                    <div class="form-group">
+                        <label for="userName">User Name</label>
+                        <input type="text" class="form-control" id="userName"
+                               name="login" placeholder="Enter User Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                               placeholder="Enter password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>

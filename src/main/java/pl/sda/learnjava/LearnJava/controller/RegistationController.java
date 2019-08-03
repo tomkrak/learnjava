@@ -30,14 +30,14 @@ public class RegistationController {
         return "registration";
     }
 
-    @RequestMapping(value = "/registrations", method = RequestMethod.POST)
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public String postRegistrations(@ModelAttribute @Valid StudentDTO studentDTO, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
             return "registration";
         } else {
             studentService.addStudent(studentDTO);
-            return "redirect:/students";
+            return "redirect:/login";
         }
     }
 }

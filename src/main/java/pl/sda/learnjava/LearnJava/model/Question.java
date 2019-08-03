@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import java.util.Objects;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -126,5 +128,26 @@ public class Question {
         this.answer3 = answer3;
         this.answer4 = answer4;
         this.correctAnswer = correctAnswer;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Question question = (Question) o;
+        return level == question.level &&
+                id.equals(question.id) &&
+                Objects.equals(name, question.name) &&
+                Objects.equals(text, question.text) &&
+                Objects.equals(answer1, question.answer1) &&
+                Objects.equals(answer2, question.answer2) &&
+                Objects.equals(answer3, question.answer3) &&
+                Objects.equals(answer4, question.answer4) &&
+                Objects.equals(correctAnswer, question.correctAnswer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

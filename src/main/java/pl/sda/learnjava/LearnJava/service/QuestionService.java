@@ -36,7 +36,7 @@ public class QuestionService {
 
     public Map<Integer, String> getQuestionsLevelAsMap() {
         Map<Integer, String> levelsMap = new HashMap<>();
-        levelsMap.put(1,"Poziom początkujący");
+        levelsMap.put(1, "Poziom początkujący");
         levelsMap.put(2, "Poziom średniozaawansowany");
         levelsMap.put(3, "Poziom zaawansowany");
         return levelsMap;
@@ -51,16 +51,18 @@ public class QuestionService {
         return questionRepository.getByName(name);
     }
 
-    public List<Question> findRandomFiveByLevel(Integer level) {
+    public List<Question> findRandomFiveByLevel(Integer level, Set<Question> criteriaSet) {
         Random random = new Random();
         List<Question> allQuestions = questionRepository.findByLevel(level);
+        allQuestions.removeAll(criteriaSet);
         int numberOfQuestions = allQuestions.size();
         List<Question> randomQuestions = new ArrayList<>();
-        while(randomQuestions.size() < 5){
-            int r = random.nextInt(numberOfQuestions);
-            if(!randomQuestions.contains(allQuestions.get(r))) {
-                randomQuestions.add(allQuestions.get((r)));
-
+        if (allQuestions.size() >= 5) {
+            while (randomQuestions.size() < 5) {
+                int r = random.nextInt(numberOfQuestions);
+                if (!randomQuestions.contains(allQuestions.get(r))) {
+                    randomQuestions.add(allQuestions.get((r)));
+                }
             }
         }
         return randomQuestions;

@@ -1,7 +1,5 @@
 package pl.sda.learnjava.LearnJava.model;
 
-import com.sun.javafx.geom.transform.Identity;
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
 

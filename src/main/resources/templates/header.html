@@ -65,8 +65,13 @@
                         </li>
                     </div>
                     <div sec:authorize="hasRole('ROLE_admin')">
-                        <li class="nav-item">
-                            <a class="nav-link" th:href="@{/admin/addquestion}" style="color: #f7c6ff">Dodaj</a>
+                        <li class="nav-item" style="width: 120px">
+                            <a class="nav-link" th:href="@{/admin/addquestion}" style="color: #f7c6ff">Dodaj pytanie</a>
+                        </li>
+                    </div>
+                    <div sec:authorize="hasRole('ROLE_admin')">
+                        <li class="nav-item" style="width: 120px">
+                            <a class="nav-link" th:href="@{/admin/addbooks}" style="color: #ff4e35">Dodaj książkę</a>
                         </li>
                     </div>
                 </ul>

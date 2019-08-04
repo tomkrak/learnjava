@@ -3,9 +3,13 @@ package pl.sda.learnjava.LearnJava.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.sda.learnjava.LearnJava.dto.QuestionDTO;
+import pl.sda.learnjava.LearnJava.dto.QuizAnswerDTO;
+import pl.sda.learnjava.LearnJava.dto.SimpleAnswer;
 import pl.sda.learnjava.LearnJava.model.Question;
 import pl.sda.learnjava.LearnJava.repository.QuestionRepository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.*;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -13,6 +17,8 @@ import java.util.stream.Collectors;
 @Service
 public class QuestionService {
     private QuestionRepository questionRepository;
+    @PersistenceContext
+    EntityManager entityManager;
 
     public QuestionService() {
     }
@@ -78,6 +84,44 @@ public class QuestionService {
             }
         }
         return randomQuestions;
+    }
+    public List<Question> getQuestionsToCorrectQuiz(QuizAnswerDTO quizAnswerDTO) {
+        List<Question> questions = new ArrayList<>();
+
+
+        for (SimpleAnswer simpleAnswer : quizAnswerDTO.getSimpleAnswers()) {
+            Question question = questionRepository.getByName(simpleAnswer.getQuestion());
+            entityManager.detach(question);
+
+            if (question.getAnswer1().equals(simpleAnswer.getAnswer()) && !question.getAnswer1().equals(question.getCorrectAnswer())) {
+                question.setAnswer1("<a style=\"color: red\">" + question.getAnswer1() + "</a>\n");
+            }
+            if (question.getAnswer2().equals(simpleAnswer.getAnswer()) && !question.getAnswer2().equals(question.getCorrectAnswer())) {
+                question.setAnswer2("<a style=\"color: red\">" + question.getAnswer2() + "</a>\n");
+            }
+            if (question.getAnswer3().equals(simpleAnswer.getAnswer()) && !question.getAnswer3().equals(question.getCorrectAnswer())) {
+                question.setAnswer3("<a style=\"color: red\">" + question.getAnswer3() + "</a>\n");
+            }
+            if (question.getAnswer4().equals(simpleAnswer.getAnswer()) && !question.getAnswer4().equals(question.getCorrectAnswer())) {
+                question.setAnswer4("<a style=\"color: red\">" + question.getAnswer4() + "</a>\n");
+            }
+
+            if (question.getAnswer1().equals(question.getCorrectAnswer())) {
+                question.setAnswer1("<a style=\"color: green\">" + question.getAnswer1() + "</a>\n");
+            }
+            if (question.getAnswer2().equals(question.getCorrectAnswer())) {
+                question.setAnswer2("<a style=\"color: green\">" + question.getAnswer2() + "</a>\n");
+            }
+            if (question.getAnswer3().equals(question.getCorrectAnswer())) {
+                question.setAnswer3("<a style=\"color: green\">" + question.getAnswer3() + "</a>\n");
+            }
+            if (question.getAnswer4().equals(question.getCorrectAnswer())) {
+                question.setAnswer4("<a style=\"color: green\">" + question.getAnswer4() + "</a>\n");
+            }
+
+            questions.add(question);
+        }
+        return questions;
     }
 
 

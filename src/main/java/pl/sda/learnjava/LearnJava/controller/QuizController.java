@@ -105,43 +105,9 @@ public class QuizController {
     @RequestMapping(value = "/game", method = RequestMethod.POST)
     public String submitQuiz(@ModelAttribute QuizAnswerDTO quizAnswerDTO, Model model, Principal principal) {
 
-        List<Question> questions = new ArrayList<>();
-
-
-        for (SimpleAnswer simpleAnswer : quizAnswerDTO.getSimpleAnswers()) {
-            Question question = questionService.getByName(simpleAnswer.getQuestion());
-            entityManager.detach(question);
-
-            if (question.getAnswer1().equals(simpleAnswer.getAnswer()) && !question.getAnswer1().equals(question.getCorrectAnswer())) {
-                question.setAnswer1("<a style=\"color: red\">" + question.getAnswer1() + "</a>\n");
-            }
-            if (question.getAnswer2().equals(simpleAnswer.getAnswer()) && !question.getAnswer2().equals(question.getCorrectAnswer())) {
-                question.setAnswer2("<a style=\"color: red\">" + question.getAnswer2() + "</a>\n");
-            }
-            if (question.getAnswer3().equals(simpleAnswer.getAnswer()) && !question.getAnswer3().equals(question.getCorrectAnswer())) {
-                question.setAnswer3("<a style=\"color: red\">" + question.getAnswer3() + "</a>\n");
-            }
-            if (question.getAnswer4().equals(simpleAnswer.getAnswer()) && !question.getAnswer4().equals(question.getCorrectAnswer())) {
-                question.setAnswer4("<a style=\"color: red\">" + question.getAnswer4() + "</a>\n");
-            }
-
-            if (question.getAnswer1().equals(question.getCorrectAnswer())) {
-                question.setAnswer1("<a style=\"color: green\">" + question.getAnswer1() + "</a>\n");
-            }
-            if (question.getAnswer2().equals(question.getCorrectAnswer())) {
-                question.setAnswer2("<a style=\"color: green\">" + question.getAnswer2() + "</a>\n");
-            }
-            if (question.getAnswer3().equals(question.getCorrectAnswer())) {
-                question.setAnswer3("<a style=\"color: green\">" + question.getAnswer3() + "</a>\n");
-            }
-            if (question.getAnswer4().equals(question.getCorrectAnswer())) {
-                question.setAnswer4("<a style=\"color: green\">" + question.getAnswer4() + "</a>\n");
-            }
-
-            questions.add(question);
-        }
+        List<Question> questions = questionService.getQuestionsToCorrectQuiz(quizAnswerDTO);
         Student currentStudent = studentService.getByLogin(principal.getName());
-        currentStudent.addScore(quizAnswerDTOService.getScore(quizAnswerDTO));
+        studentService.addScore(currentStudent, quizAnswerDTOService.getScore(quizAnswerDTO));
         studentService.addStudent(currentStudent);
         model.addAttribute("quizScore", quizAnswerDTOService.getScore(quizAnswerDTO));
         model.addAttribute("level", currentStudent.getLevel());

@@ -42,4 +42,11 @@ public class StudentService {
         return studentRepository.getByLogin(login);
     }
 
+    public void addScore(Student student, int score) {
+        int level = student.getLevel();
+        int progress = student.getProgress();
+        student.setLevel(level + (progress + score)/10);
+        student.setProgress((progress + score) % 10);
+    }
+
 }

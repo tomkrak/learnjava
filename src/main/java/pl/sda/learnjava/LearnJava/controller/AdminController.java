@@ -8,17 +8,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import pl.sda.learnjava.LearnJava.dto.BookDTO;
 import pl.sda.learnjava.LearnJava.dto.QuestionDTO;
+import pl.sda.learnjava.LearnJava.service.BookService;
 import pl.sda.learnjava.LearnJava.service.QuestionService;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
     private QuestionService questionService;
+    private BookService bookService;
 
     @Autowired
-    public AdminController(QuestionService questionService) {
+    public AdminController(QuestionService questionService, BookService bookService) {
         this.questionService = questionService;
+        this.bookService = bookService;
     }
 
     @RequestMapping("/addquestion")
@@ -34,4 +38,18 @@ public class AdminController {
         questionService.addQuestion(questionDTO);
         return "redirect:/questions";
     }
+
+    @RequestMapping("/addbooks")
+    public String addBooks(Model model) {
+        model.addAttribute("bookDTO", new BookDTO());
+        model.addAttribute("username", SecurityContextHolder.getContext().getAuthentication().getName());
+        return "addbooks";
+    }
+    @RequestMapping(value = "/addbooks",method = RequestMethod.POST)
+    public String postAddBook(@ModelAttribute BookDTO bookDTO,Model model){
+        bookService.addBook(bookDTO.bookDTOToBook());
+        return "redirect:/admin/addbooks";
+    }
+
 }
+

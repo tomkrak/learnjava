@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HomeController {
     @RequestMapping
     public String home(Model model){
-        model.addAttribute("username", SecurityContextHolder.getContext().getAuthentication().getName());
+        String name = SecurityContextHolder.getContext().getAuthentication().getName();
+        if("anonymousUser".equals(name)) {
+            name = "";
+        }
+        model.addAttribute("username", name);
         return "index";
     }
 }

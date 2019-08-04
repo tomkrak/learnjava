@@ -36,9 +36,7 @@ public class QuizController {
     private QuestionService questionService;
     private QuizAnswerDTOService quizAnswerDTOService;
     private StudentService studentService;
-    private Set<Question> basicQuestionsAnswered = new HashSet<>();
-    private Set<Question> mediumQuestionsAnswered = new HashSet<>();
-    private Set<Question> advancedQuestionsAnswered = new HashSet<>();
+
 
     @PersistenceContext
     EntityManager entityManager;
@@ -63,28 +61,8 @@ public class QuizController {
     public String selectLevel(@RequestParam(name = "level") String level, Model model) {
 
         int levelInt = questionService.getQuestionLevelasInt(level);
-        List<Question> randomQuestions = new ArrayList<>();
-        switch (levelInt) {
-            case 1:
-                randomQuestions = questionService.findRandomFiveByLevel(levelInt, basicQuestionsAnswered);
-                if (randomQuestions.size() == 5)
-                    basicQuestionsAnswered.addAll(randomQuestions);
+        List<Question> randomQuestions = questionService.findRandomFiveByLevel(levelInt);
 
-
-                break;
-            case 2:
-                randomQuestions = questionService.findRandomFiveByLevel(levelInt, mediumQuestionsAnswered);
-                if (randomQuestions.size() == 5)
-                    mediumQuestionsAnswered.addAll(randomQuestions);
-
-                break;
-            case 3:
-                randomQuestions = questionService.findRandomFiveByLevel(levelInt, advancedQuestionsAnswered);
-                if (randomQuestions.size() == 5)
-                    advancedQuestionsAnswered.addAll(randomQuestions);
-                break;
-
-        }
         List<SimpleAnswer> simpleAnswers = new ArrayList<>();
 
         for (int i = 0; i < 5; i++) {
@@ -121,33 +99,10 @@ public class QuizController {
 
     @RequestMapping(value = "/newgame", method = RequestMethod.POST)
     public String newGame() {
-        basicQuestionsAnswered.clear();
-        mediumQuestionsAnswered.clear();
-        advancedQuestionsAnswered.clear();
+        questionService.clearAnsweredQuestions();
+
         return "redirect:/quiz";
     }
 
-    public Set<Question> getBasicQuestionsAnswered() {
-        return basicQuestionsAnswered;
-    }
 
-    public void setBasicQuestionsAnswered(Set<Question> basicQuestionsAnswered) {
-        this.basicQuestionsAnswered = basicQuestionsAnswered;
-    }
-
-    public Set<Question> getMediumQuestionsAnswered() {
-        return mediumQuestionsAnswered;
-    }
-
-    public void setMediumQuestionsAnswered(Set<Question> mediumQuestionsAnswered) {
-        this.mediumQuestionsAnswered = mediumQuestionsAnswered;
-    }
-
-    public Set<Question> getAdvancedQuestionsAnswered() {
-        return advancedQuestionsAnswered;
-    }
-
-    public void setAdvancedQuestionsAnswered(Set<Question> advancedQuestionsAnswered) {
-        this.advancedQuestionsAnswered = advancedQuestionsAnswered;
-    }
 }

@@ -1,7 +1,9 @@
 package pl.sda.learnjava.LearnJava.service;
 
+import com.google.common.collect.ImmutableMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.expression.Maps;
 import pl.sda.learnjava.LearnJava.dto.QuestionDTO;
 import pl.sda.learnjava.LearnJava.dto.QuizAnswerDTO;
 import pl.sda.learnjava.LearnJava.dto.SimpleAnswer;
@@ -19,6 +21,18 @@ public class QuestionService {
     private QuestionRepository questionRepository;
     @PersistenceContext
     EntityManager entityManager;
+    private Set<Question> basicQuestionsAnswered = new HashSet<>();
+    private Set<Question> mediumQuestionsAnswered = new HashSet<>();
+    private Set<Question> advancedQuestionsAnswered = new HashSet<>();
+    public Set<Question> getAnsweredQuestionsByLevel(int level) {
+        if(level == 1)
+            return this.basicQuestionsAnswered;
+        if(level == 2)
+            return this.mediumQuestionsAnswered;
+        return this.advancedQuestionsAnswered;
+    }
+
+
 
     public QuestionService() {
     }
@@ -69,10 +83,10 @@ public class QuestionService {
         return questionRepository.getByName(name);
     }
 
-    public List<Question> findRandomFiveByLevel(Integer level, Set<Question> criteriaSet) {
+    public List<Question> findRandomFiveByLevel(Integer level) {
         Random random = new Random();
         List<Question> allQuestions = questionRepository.findByLevel(level);
-        allQuestions.removeAll(criteriaSet);
+        allQuestions.removeAll(getAnsweredQuestionsByLevel(level));
         int numberOfQuestions = allQuestions.size();
         List<Question> randomQuestions = new ArrayList<>();
         if (allQuestions.size() >= 5) {
@@ -83,6 +97,7 @@ public class QuestionService {
                 }
             }
         }
+        getAnsweredQuestionsByLevel(level).addAll(randomQuestions);
         return randomQuestions;
     }
     public List<Question> getQuestionsToCorrectQuiz(QuizAnswerDTO quizAnswerDTO) {
@@ -125,4 +140,11 @@ public class QuestionService {
     }
 
 
+
+
+     public void clearAnsweredQuestions() {
+        basicQuestionsAnswered.clear();
+        mediumQuestionsAnswered.clear();
+        advancedQuestionsAnswered.clear();
+     }
 }

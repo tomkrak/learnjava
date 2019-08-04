@@ -1,9 +1,6 @@
 package pl.sda.learnjava.LearnJava.controller;
 
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.data.jpa.provider.HibernateUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -16,18 +13,17 @@ import pl.sda.learnjava.LearnJava.dto.QuizAnswerDTO;
 import pl.sda.learnjava.LearnJava.dto.SimpleAnswer;
 import pl.sda.learnjava.LearnJava.model.Question;
 import pl.sda.learnjava.LearnJava.model.Student;
-import pl.sda.learnjava.LearnJava.repository.QuestionRepository;
 import pl.sda.learnjava.LearnJava.service.QuestionService;
 import pl.sda.learnjava.LearnJava.service.QuizAnswerDTOService;
 import pl.sda.learnjava.LearnJava.service.StudentService;
-import sun.plugin.liveconnect.SecurityContextHelper;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 import java.security.Principal;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/quiz")

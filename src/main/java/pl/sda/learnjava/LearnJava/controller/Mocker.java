@@ -3,16 +3,20 @@ package pl.sda.learnjava.LearnJava.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import pl.sda.learnjava.LearnJava.model.Book;
 import pl.sda.learnjava.LearnJava.model.Question;
 import pl.sda.learnjava.LearnJava.model.Role;
 import pl.sda.learnjava.LearnJava.model.Student;
 import pl.sda.learnjava.LearnJava.repository.QuestionRepository;
 import pl.sda.learnjava.LearnJava.repository.RoleRepository;
 import pl.sda.learnjava.LearnJava.repository.StudentRepository;
+import pl.sda.learnjava.LearnJava.service.BookService;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
 import java.util.HashSet;
+
+import static org.hibernate.validator.internal.metadata.raw.ConfigurationSource.API;
 
 @Controller
 public class Mocker {
@@ -20,18 +24,62 @@ public class Mocker {
     private QuestionRepository questionRepository;
     private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
+    private BookService bookService;
+
+
 
     @Autowired
     public Mocker(StudentRepository studentRepository, QuestionRepository questionRepository, RoleRepository roleRepository,
-                  PasswordEncoder passwordEncoder) {
+                  PasswordEncoder passwordEncoder,BookService bookService) {
         this.studentRepository = studentRepository;
         this.questionRepository = questionRepository;
         this.roleRepository = roleRepository;
         this.passwordEncoder = passwordEncoder;
+        this.bookService= bookService;
+    }
+    public void initBooks(){
+        if(!bookService.existByTitle("Java. Podstawy, Wydanie X")) {
+            Book book1 = new Book();
+            book1.setAuthorName("Horstmann C.S.");
+            book1.setTitle("Java. Podstawy, Wydanie X");
+            book1.setCharacterization("biblia javowców. Wydanie X jest zgodne z Javą 8. Choć książka zawiera niektóre rzadko używane technologie, " +
+                    "jak pakiet Swing i jest dosyć trudna w odbiorze dla początkujących  zawiera jednak dogłębną analizę " +
+                    "podstaw składni Javy i obiektowości. Jest to pierwszy tom serii tego autora, drugi – Techniki " +
+                    "zaawansowane – omawia takie zagadnienia, jak API strumieni, aplikacje sieciowe używające protokołu" +
+                    "HTTP, JDBC i kwestie bezpieczeństwa");
+            book1.setNumberOfPages(872);
+            book1.setYear(2016);
+
+            Book book2 = new Book();
+            book2.setAuthorName("Schildt H");
+            book2.setTitle("Java. Przewodnik dla początkujących, Wydanie VI i nowsze");
+            book2.setCharacterization("typowy podręcznik z listingami kodu do przepisania i uruchomienia. Styl bardziej" +
+                    "zrozumiały niż u Horstmanna. Z rzeczy, których już siędziś mało używa mamy rozdziały o apletach," +
+                    " Swingu i JavieFX. Publikacja sygnowana przez firmę Oracle, aktualnego wydawcę Javy.");
+            book2.setNumberOfPages(568);
+            book2.setYear(2015);
+
+            Book book3 = new Book();
+            book3.setAuthorName("Schildt H.");
+            book3.setTitle("Schildt H., Java. Kompendium programisty, Wydanie IX");
+            book3.setCharacterization(" bardziej rozbudowana, dogłębna, encyklopedyczna i dwa razy dłuższa wersja poprzedniej" +
+                    "książki tego autora. W części I omówiony został język Java, w części II biblioteki języka Java" +
+                    "(część III i IV pomijamy milczeniem – Swing i JavaFX), a w części V stosowanie Javy w praktyce" +
+                    " (Java Beans, serwety).");
+            book3.setNumberOfPages(1132);
+            book3.setYear(2016);
+
+
+            bookService.addBook(book1);
+            bookService.addBook(book2);
+            bookService.addBook(book3);
+        }
+
     }
 
     @PostConstruct
     public void mockData() {
+        initBooks();
         Role student = new Role("student");
         Role admin = new Role("admin");
 
@@ -66,6 +114,8 @@ public class Mocker {
         studentRepository.save(student1);
         studentRepository.save(student2);
         studentRepository.save(admin1);
+
+
 
 
         Question question1 = new Question("Pytanie 1", "W deklaracji metody, wymienione elementy występują w następującej kolejności:");

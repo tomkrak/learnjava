@@ -17,7 +17,7 @@ public class Book {
     @Column
     String authorName;
 
-    @Column
+    @Column(length = 500)
     String characterization;
 
     @Column

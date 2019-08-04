@@ -62,19 +62,13 @@ public class QuizController {
     @RequestMapping(value = "/game", method = RequestMethod.GET)
     public String selectLevel(@RequestParam(name = "level") String level, Model model) {
 
-        Integer levelInt = questionService.getQuestionsLevelAsMap()
-                .entrySet()
-                .stream()
-                .filter(x -> level.equals(x.getValue()))
-                .map(Map.Entry::getKey).findFirst()
-                .get();
+        int levelInt = questionService.getQuestionLevelasInt(level);
         List<Question> randomQuestions = new ArrayList<>();
         switch (levelInt) {
             case 1:
                 randomQuestions = questionService.findRandomFiveByLevel(levelInt, basicQuestionsAnswered);
                 if (randomQuestions.size() == 5)
                     basicQuestionsAnswered.addAll(randomQuestions);
-
 
 
                 break;
@@ -92,7 +86,6 @@ public class QuizController {
 
         }
         List<SimpleAnswer> simpleAnswers = new ArrayList<>();
-
 
         for (int i = 0; i < 5; i++) {
             SimpleAnswer simpleAnswer = new SimpleAnswer();

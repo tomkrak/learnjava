@@ -40,7 +40,19 @@ public class QuestionService {
         levelsMap.put(2, "Poziom średniozaawansowany");
         levelsMap.put(3, "Poziom zaawansowany");
         return levelsMap;
+    }
 
+    public int getQuestionLevelasInt(String level) {
+        Map<Integer, String> levelsMap = new HashMap<>();
+        levelsMap.put(1, "Poziom początkujący");
+        levelsMap.put(2, "Poziom średniozaawansowany");
+        levelsMap.put(3, "Poziom zaawansowany");
+        return levelsMap
+                .entrySet()
+                .stream()
+                .filter(x -> level.equals(x.getValue()))
+                .map(Map.Entry::getKey).findFirst()
+                .get();
     }
 
     public List<Question> findByLevel(Integer level) {

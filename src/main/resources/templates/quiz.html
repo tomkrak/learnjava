@@ -14,10 +14,12 @@
     <body>
     <th:block th:include="header::header"></th:block>
     <div>
-        Wybierz poziom zaawansowania.
-        Poziom początkujący – 1 punkt
+        Wybierz poziom zaawansowania:
     </div>
-
+    <div>
+        Poziom początkujący – 1 punkt || Poziom średniozaawansowany – 2 punkty || Poziom zaawansowany – 3 punkty
+    </div>
+    <div> </div>
     <th:block th:each="level : ${levels}">
         <div>
             <a th:text="${level}" th:href="@{/quiz/game(level=${level})}"></a>

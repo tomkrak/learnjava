@@ -13,16 +13,20 @@
     </head>
     <body>
     <th:block th:include="header::header"></th:block>
+    <div class="container" style="margin-top: 10px">
     <div>
-        Wybierz poziom zaawansowania.
-        Poziom początkujący – 1 punkt
+        Wybierz poziom zaawansowania:
+    </div>
+    <div>
+        <p>Poziom początkujący – 1 punkt || Poziom średniozaawansowany – 2 punkty || Poziom zaawansowany – 3 punkty</p>
     </div>
 
     <th:block th:each="level : ${levels}">
-        <div>
-            <a th:text="${level}" th:href="@{/quiz/game(level=${level})}"></a>
+        <div style="margin-top: 10px">
+            <a class="btn btn-primary btn-lg btn-block"  th:text="${level}" th:href="@{/quiz/game(level=${level})}"></a>
         </div>
     </th:block>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -33,5 +37,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+    </div>
     </body>
 </html>

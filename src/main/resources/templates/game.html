@@ -13,6 +13,7 @@
     </head>
     <body>
     <th:block th:include="header::header"></th:block>
+    <div class="container" style="margin-top: 10px">
     <th:block th:if="${questions.size() == 5}">
 
     <form th:action="@{/quiz/game}" th:object="${quizAnswerDTO}" method="post">
@@ -153,16 +154,15 @@
                 </li>
             </ul>
         </fieldset>
-        <button th:type="submit">Submit</button>
-        <button th:type="reset">Reset</button>
+        <button class="btn btn-success" th:type="submit">Submit</button>
+        <button style="margin-left: 15px" class="btn btn-danger" th:type="reset">Reset</button>
     </form>
     </th:block>
     <th:block th:if="${questions.size() < 5}">
         <h2>Nie ma więcej pytań na tym poziomie. Zacznij od nowa albo zmień poziom.</h2>
         <form th:action="@{/quiz/newgame}" method="post">
-            <button th:type="submit">Zacznij od nowa</button>
+            <button style="margin-top: 10px" class="btn btn-secondary btn-lg btn-block" th:type="submit">Zacznij od nowa</button>
         </form>
-
     </th:block>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -174,5 +174,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+    </div>
     </body>
 </html>
